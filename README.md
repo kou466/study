@@ -8,4 +8,5 @@
 4. 연산자 - 산술, 대입, 비트, 쉬프트 / 연산 우선 순위 / 2의 보수 / 정수 오버플로우
 5. scanf
 6. if / if ~ else
-7. for / while / do ~ while / switch
+7. for / while / do ~ while
+8. switch
