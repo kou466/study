@@ -3,9 +3,9 @@
 ### 21-11-01 
 
 1. C언어의 정의
-2. 기수법
-3. 변수
-4. 2의 보수
+2. 기수법 / 2진수 ↔ 10진수 ↔ 16진수 변환 / bit, byte, word, double word (메모리 단위)
+3. 변수 - 정수형, 실수형 / 메모리 주소 / 변수 이름 주의사항
+4. 연산자 - 산술, 대입, 비트, 쉬프트 / 연산 우선 순위 / 2의 보수 / 정수 오버플로우
 5. scanf
-6. if
-7. for, while, do ~ while8. switch
+6. if / if ~ else
+7. for / while / do ~ while / switch
