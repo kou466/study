@@ -1,7 +1,9 @@
 #include <stdio.h>
 
 int main() {
-  int n, i, j, x, y;
+  int n; // 흰 돌의 개수
+  int i, j; // for문 변수
+  int x, y; // 좌표
   int a[20][20] = {};
 
   scanf("%d", &n);
@@ -10,7 +12,7 @@ int main() {
     a[x][y] = 1;
   }
   for(i=1; i<=19; i++) {
-    for(j=1; j<=10; j++) {
+    for(j=1; j<=19; j++) {
       printf("%d ", a[i][j]);
     }
     printf("\n");
