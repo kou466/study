@@ -1,5 +1,11 @@
 # C언어 기초
 
+## Nov 2021
+
+<details>
+<summary>11/01</summary>
+<div markdown="1">
+
 ### 21-11-01 
 1. C언어의 정의
 2. 기수법 / 2진수 ↔ 10진수 ↔ 16진수 변환 / bit, byte, word, double word (메모리 단위)
@@ -8,6 +14,13 @@
 5. scanf
 6. if / if ~ else
 7. for / while / do ~ while
+
+</div>
+</details>
+
+<details>
+<summary>11/02</summary>
+<div markdown="1">
 
 ### 21-11-02
 1. switch, case
@@ -37,11 +50,24 @@
   ```
   >__※ 특별히 초기화 하지 않은 원소들에는 0이 자동으로 들어가게 된다.__
 
+</div>
+</details>
+
+<details>
+<summary>11/03</summary>
+<div markdown="1">
+
 ### 21-11-03
 1. 배열 연습문제(/src/modoocode)  
 1-1. 입력받은 학생들의 성적은 내림차순으로 정렬  
 <br>1-2. 입력받은 학생들의 성적을 막대 그래프로 표현 (해결 x)
 
+</div>
+</details>
+
+<details>
+<summary>11/04</summary>
+<div markdown="1">
 
 ### 21-11-04
 1. 다차원 배열
@@ -85,6 +111,13 @@
 
 ※ __일차원 배열은 한 개의 인덱스로 원소에 접근하는 것__이고, __이차원 배열은 두 개의 인덱스로 원소에 접근하는 것__이다.
 
+</div>
+</details>
+
+<details>
+<summary>11/05</summary>
+<div markdown="1">
+
 ### 21-11-05
 1. 2차원 배열 실습(/src/modoocode)
 2. 배열 정의  
@@ -115,17 +148,44 @@
 ->  
 3차원 배열은 세 개의 값(x,y,z)로 원소에 접근한다.
 
+</div>
+</details>
+
+<details>
+<summary>11/06</summary>
+<div markdown="1">
+
 ### 21-11-06
 ~~1. 포인터~~  
 - 1차원 배열 기초 연습 문제(/src/CodeUp)
 
+</div>
+</details>
+
+<details>
+<summary>11/07</summary>
+<div markdown="1">
 
 ### 21-11-07
 - 일주일치 복습 및 내용 정리/이해
 
+</div>
+</details>
+
+<details>
+<summary>11/08</summary>
+<div markdown="1">
+
 ### 21-11-08
 - 2차원 배열 기초 연습 문제
 (/src/CodeUp)
+
+</div>
+</details>
+
+<details>
+<summary>11/09</summary>
+<div markdown="1">
 
 ### 21-11-09
 - 포인터
@@ -146,6 +206,13 @@
   
   >& 연산자를 사용하여 특정한 데이터의 메모리 상의 주소값을 알 수 있다.
 
+</div>
+</details>
+
+<details>
+<summary>11/10</summary>
+<div markdown="1">
+
 ### 21-11-10
 - __포인터는 특정한 데이터의 주소값을 보관한다. 이 때 포인터는 주소값을 보관하는 데이터의 형에 *를 붙임으로써 정의되고, &연산자로 특정한 데이터의 메모리 상의 주소값을 알아올 수 있다.__
 </br></br>
@@ -159,6 +226,13 @@ int 변수 a / 포인터 p
 - 포인터도 타입이 있다.
 - 포인터도 변수이기 때문에 포인터에 들어간 주소값이 바뀔 수 있다.
 
+</div>
+</details>
+
+<details>
+<summary>11/11</summary>
+<div markdown="1">
+
 ### 21-11-11
 - 포인터는 특정한 데이터의 메모리 상의 (시작) 주소값을 보관하는 변수
 
@@ -168,9 +242,23 @@ int 변수 a / 포인터 p
 </br>
 - `const int *`의 의미는 `const int`형 변수를 가리키는게 아니라 `int`형 변수를 가리키는데, __그 값을 절대로 바꾸지 말라__라는 의미 이다.
 
+</div>
+</details>
+
+<details>
+<summary>11/12</summary>
+<div markdown="1">
+
 ### 21-11-12
 ~~- 포인터 덧셈~~
 11-09 ~ 11-11 까지의 포인터 복습
+
+</div>
+</details>
+
+<details>
+<summary>11/13</summary>
+<div markdown="1">
 
 ### 21-11-13
 - 11-11 참조(상수 포인터 부분)
@@ -199,6 +287,54 @@ const int* pa = &a;
 
 → `a` 자체는 변수이므로 값이 자유롭게 변경 될 수 있다.  
 `pa`를 통해서 `a`를 간접적으로 가리킬 때에는 컴퓨터가 __'아, 내가 `const`인 변수를 가리키고 있구나'__ 라고 생각하기 때문에(`const int*` 로 포인터를 정의했기때문) 값을 바꿀 수 없다.
+
+</div>
+</details>
+
+<details>
+<summary>11/14</summary>
+<div markdown="1">
+
+### 21-11-14
+- 11-11 / 11-13 참조
+
+```c
+/* 상수 포인터? */
+#include <stdio.h>
+int main() {
+  int a;
+  int b;
+  int* const pa = &a;
+
+  *pa = 3;  // 올바른 문장
+  pa = &b;  // 올바르지 않은 문장
+
+  return 0;
+}
+```
+
+- 위 코드에서는 `const`키워드가 `int*`앞에 있는것이 아니라 `int*`와 `pa`사이에 놓이고 있다.
+
+- 포인터에는 가리키는 데이터의 주소값, 즉 `a`의 주소값이 `pa`에 저장 된다. 따라서, 이 `pa`가 `const`라는 의미는 `pa`의 값이 절대로 바뀔 수 없다는 것인데, `pa`는 포인터가 가리키는 변수의 주소값이 들어 있으므로 `pa`가 처음에 가리키는것(`a`)말고 다른것은 절대로 건드릴 수 없다는 것이다.
+
+```c
+*pa = 3; //올바른 문장
+```
+
+- pa가 가리키는 값을 바꾸면 안된다는 말은 안했기 때문에 위 문장은 가능하다.
+
+</div>
+</details>
+
+<details>
+<summary>11/15</summary>
+<div markdown="1">
+
+### 21-11-15
+- 포인터 덧셈(예정)
+
+</div>
+</details>
 
 
 
