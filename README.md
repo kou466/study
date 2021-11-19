@@ -423,6 +423,7 @@ int main() {
 <summary>11/18</summary>
 <div markdown="1">
 
+### 21-11-18
 배열 = 배열 / 포인터 = 포인터  
 -> 배열의 이름과 첫 번째 원소의 주소값은 엄밀히 다른 것이다.  
 
@@ -455,9 +456,76 @@ int* p, q, r; // 틀린 문장
 <summary>11/19</summary>
 <div markdown="1">
 
-- 포인터 연습문제(예정)
+### 21-11-19
+> 이전 내용
+- 배열은 배열이고, 포인터는 포인터이다. 다만;
+  - `sizeof`와 주소값 연산자와 함꼐 사용할 때를 제외하면, 배열의 이름은 첫 번째 원소를 가리킨다.
+  - `arr[i]`와 같은 문장은 사실 컴파일러에 의해 `*(arr + i)`로 변환된다.
+
+- 1차원 배열 가리키기
+
+```c
+#include <stdio.h>
+
+int main() {
+  int arr[3] = {1, 2, 3};
+  int *parr;
+
+  parr = arr; // parr = &arr[0]; 과 동일
+
+  printf("arr[1] : %d \n", arr[1]);
+  printf("parr[1] : %d \n", parr[1]);
+  return 0;
+}
+```
+---
+```c
+#include <stdio.h>
+int main() {
+  int arr[10] = {100, 98, 97, 95, 89, 76, 92, 96, 100, 99};
+
+  int* parr = arr;
+  int sum = 0;
+
+  while (parr - arr <= 9) {
+    sum += (*parr);
+    parr++;
+  }
+
+  printf("내 시험 점수 평균 : %d \n", sum / 10);
+  return 0;
+}
+```
+
+※ 포인터 연산에서 1 증가 시킨다면, `parr`에 저장된 주소값에 1을 더하는것이 아니라 `1 *`(포인터가 가리키는 타입의 크기)가 더해진다.
+
+- 여기서 `parr`을 따로 선언한 이유는 `arr`를 증가 시켜서 `*(arr)`로 접근 할 수 없기 때문이다. (아래 코드 참고)
+
+```c
+#include <stdio.h>
+int main() {
+  int arr[10] = {100, 98, 97, 95, 89, 76, 92, 96, 100, 99};
+
+  arr++;  // 오류
+  return 0;
+}
+```
+
+- 배열의 이름이 첫 번째 원소를 가리키는 포인터로 타입 변경 된다고 했을 때, 단순히 배열의 첫 번째 원소를 가리키는 주소값 그 자체가 될 뿐이다.
+> 따라서, `arr++`문장은 C컴파일러 입장에서 `(0x7fff1234)++;`를 수행한 것인데, 이는 말이 되지 않는 문장이다.
 
 </div>
 </details>
+
+<details>
+<summary>11/20</summary>
+<div markdown="1">
+
+### 21-11-20
+- 포인터의 포인터(예정)
+
+</div>
+</details>
+
 
  ###### Reference: https://modoocode.com/
