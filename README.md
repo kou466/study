@@ -526,10 +526,71 @@ int main() {
 <div markdown="1">
 
 ### 21-11-20
-- 포인터의 포인터(예정)
+- 포인터의 포인터
+  - `int **p;` -> `int`를 가리키는 포인터를 가리키는 포인터
+
+```c
+// 예제
+#include <stdio.h>
+int main() {
+  int a;
+  int *pa;
+  int **ppa;
+
+  pa = &a;
+  ppa = &pa;
+
+  a = 3;
+
+  printf("a: %d // *pa : %d // **ppa : %d \n", a, *pa, **ppa);
+  //*pa = a, **ppa = *(*ppa) = *pa = a
+  printf("&a: %p // pa : %p // *ppa : %p \n", &a, pa, *ppa);
+  //pa = &a, *ppa = pa = &a
+  printf("&pa: %p // ppa : %p \n", &pa, ppa);
+  //ppa = &pa
+}
+
+// 같은 행에 있는 값들이 모두 같음
+```
+
+> 위 관계를 그림으로 나타내면 아래와 같다.
+
+![PP.webp](./src/img/PP.webp)
+
+- 배열 이름의 주소값
+  > __이전 내용__  
+   배열 이름에 `sizeof`연산자와 주소값 연산자를 사용할 때 빼고는 전부 다 포인터로 암묵적 변환이 이루어진다.
+
+```c
+#include <stdio.h>
+
+int main() {
+  int arr[3] = {1, 2, 3};
+  int (*parr)[3] = &arr;
+
+  printf("arr[1] : %d \n", arr[1]);
+  printf("parr[1] : %d \n", (*parr)[1]);
+}
+``` 
+
+- `&arr`의 의미?  
+  -> `arr`는 `int *`로 암묵적 변환된다고 했으니까 `&arr`는 `int **`가 되는것이 *__아니다!__*  
+암묵적 변환은 주소값 연산자가 왔을 때는 이루어지지 않는다.
+
+-> `arr`는 __크기가 3인 배열__이기 때문에 `&arr`를 보관할 포인터는 __크기가 3인 배열을 가리키는 포인터__가 되어야 한다.
+
+> ※ `parr`를 정의할 때 `*parr`를 꼭 `()`로 감싸야 한다. 괄호를 뺀다면 `int *parr[3]`과 같이 되어, 컴파일러가 `int *` 원소 3개를 가지는 배열을 정의한 것으로 오해하게 된다.
 
 </div>
 </details>
 
+<details>
+<summary>Date</summary>
+<div markdown="1">
+
+- 배열 이름의 주소값(이해하기, 다시 한번 보기)
+
+</div>
+</details>
 
  ###### Reference: https://modoocode.com/
