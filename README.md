@@ -585,14 +585,23 @@ int main() {
 </details>
 
 <details>
-<summary>11/21</summary>
+<summary>11/21~22</summary>
 <div markdown="1">
 
-### 21-11-21
-~~배열 이름의 주소값(이해하기, 다시 한번 보기)~~
-  휴식..
+### 21-11-21 ~ 21-11-22
+  - 휴식
 
 </div>
 </details>
 
+<details>
+<summary>11/23</summary>
+<div markdown="1">
+
+ -배열 이름의 주소값(이해하기, 다시 한번 보기)
+  
+</div>
+</details>
+  
+  
  ###### Reference: https://modoocode.com/
