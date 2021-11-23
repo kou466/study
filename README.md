@@ -588,14 +588,14 @@ int main() {
 <summary>11/21~22</summary>
 <div markdown="1">
 
-### 21-11-21 ~ 21-11-22
-  - 휴식
+### 21-11-21 ~ 21-11-25~6
+  - 휴식(안경 파손, 수리 중)
 
 </div>
 </details>
 
 <details>
-<summary>11/23</summary>
+<summary>11/26-7</summary>
 <div markdown="1">
 
  -배열 이름의 주소값(이해하기, 다시 한번 보기)
