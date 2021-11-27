@@ -585,26 +585,30 @@ int main() {
 </details>
 
 <details>
-<summary>11/21~25</summary>
+<summary>11/21~26</summary>
 <div markdown="1">
 
-### 21-11-21 ~ 21-11-25
+### 21-11-21 ~ 21-11-26
   - 휴식(안경 파손, 수리 중)
 
 </div>
 </details>
 
 <details>
-<summary>11/26</summary>
+<summary>11/27</summary>
 <div markdown="1">
   
-### 21-11-26
- // 안경 교체 완료
- - 배열 이름의 주소값(이해하기, 다시 한번 보기)
-  - 
+### 21-11-27
+- 배열 이름의 주소값(이해하기, 다시 한번 보기)
+  - 배열 이름에 `sizeof`연산자를 사용할 때 빼고는 전부 포인터로 암묵적 변환이 이루어진다.
+  _※ 암묵적 변환은 주소값 연산자가 왔을 때에는 이루어 지지 않는다._
   
 </div>
 </details>
   
   
- ###### Reference: https://modoocode.com/
+
+  
+
+
+###### Reference: https://modoocode.com/
