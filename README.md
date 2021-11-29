@@ -617,7 +617,18 @@ int main() {
 </div>
 </details>
 
+<details>
+<summary>11/2899</summary>
+<div markdown="1">
   
+### 21-11-29
+- 포인터의 형(type)을 결정짓는 두 가지 요소
+  
+- 포인터 배열
+  
+  
+</div>
+</details>
 
 
 ###### Reference: https://modoocode.com/
