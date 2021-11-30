@@ -630,5 +630,19 @@ int main() {
 </div>
 </details>
 
+<details>
+<summary>11/30</summary>
+<div markdown="1">
+  
+### 21-11-30
+- 포인터 복습
+  
+  
+</div>
+</details>
 
+  
+  
+  
+  
 ###### Reference: https://modoocode.com/
