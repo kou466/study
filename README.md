@@ -3,6 +3,10 @@
 ## Nov 2021
 
 <details>
+<summary>2021/11</summary>
+<div markdown="1">
+
+<details>
 <summary>11/01</summary>
 <div markdown="1">
 
@@ -597,52 +601,69 @@ int main() {
 <details>
 <summary>11/27</summary>
 <div markdown="1">
-  
+
 ### 21-11-27
 - 배열 이름의 주소값(이해하기, 다시 한번 보기)
   - 배열 이름에 `sizeof`연산자를 사용할 때 빼고는 전부 포인터로 암묵적 변환이 이루어진다.  
   _※ 암묵적 변환은 주소값 연산자가 왔을 때에는 이루어 지지 않는다._
-  
+
 </div>
 </details>
-  
+
 <details>
 <summary>11/28</summary>
 <div markdown="1">
-  
+
 ### 21-11-28
 - 2차원 배열의 [] 연산자
-  
-  
+
+
 </div>
 </details>
 
 <details>
 <summary>11/29</summary>
 <div markdown="1">
-  
+
 ### 21-11-29
 - 포인터의 형(type)을 결정짓는 두 가지 요소
   
 - 포인터 배열
-  
-  
+
+
 </div>
 </details>
 
 <details>
 <summary>11/30</summary>
 <div markdown="1">
-  
+
 ### 21-11-30
 - 포인터 복습
+
+
+</div>
+</details>
+
+</div>
+</details>
+
+## Dec 2021
+
+<details>
+<summary>12/01</summary>
+<div markdown="1">
+  
+### 21-12-01
+- 
   
   
 </div>
 </details>
 
-  
-  
-  
-  
+
+
+
+
+
 ###### Reference: https://modoocode.com/
