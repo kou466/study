@@ -657,13 +657,22 @@ int main() {
 <div markdown="1">
   
 ### 21-12-01
-- 
+- 포인터 복습
   
   
 </div>
 </details>
 
-
+<details>
+<summary>12/02</summary>
+<div markdown="1">
+  
+### 21-12-02
+- fucntion (1)
+  
+  
+</div>
+</details>
 
 
 
