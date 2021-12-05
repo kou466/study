@@ -697,6 +697,18 @@ int main() {
 </div>
 </details>
 
+<details>
+<summary>12/05</summary>
+<div markdown="1">
+
+### 21-12-05
+- fucntion (2)
+  - 함수의 원형
+  
+  
+</div>
+</details>
+
 
 
 ###### Reference: https://modoocode.com/
