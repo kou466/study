@@ -709,6 +709,19 @@ int main() {
 </div>
 </details>
 
+<details>
+<summary>12/06</summary>
+<div markdown="1">
+
+### 21-12-06
+- fucntion (3)
+  
+  
+</div>
+</details>
+
+
+
 
 
 ###### Reference: https://modoocode.com/
