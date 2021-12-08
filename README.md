@@ -736,7 +736,7 @@ int main() {
 <summary>12/08</summary>
 <div markdown="1">
 
-### 21-12-07
+### 21-12-08
 - function 복습
   
   
