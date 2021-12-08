@@ -668,7 +668,7 @@ int main() {
 <div markdown="1">
   
 ### 21-12-02
-- fucntion (1)
+- function (1)
   
   
 </div>
@@ -679,7 +679,7 @@ int main() {
 <div markdown="1">
   
 ### 21-12-03
-- fucntion (1)
+- function (1)
   - `main` 함수
   
   
@@ -691,7 +691,7 @@ int main() {
 <div markdown="1">
 
 ### 21-12-04
-- fucntion (2)
+- function (2)
   
   
 </div>
@@ -702,7 +702,7 @@ int main() {
 <div markdown="1">
 
 ### 21-12-05
-- fucntion (2)
+- function (2)
   - 함수의 원형
   
   
@@ -714,7 +714,7 @@ int main() {
 <div markdown="1">
 
 ### 21-12-06
-- fucntion (3)
+- function (3)
   
   
 </div>
@@ -725,12 +725,25 @@ int main() {
 <div markdown="1">
 
 ### 21-12-07
-- fucntion (3)
+- function (3)
   - 함수 포인터
   
   
 </div>
 </details>
+
+<details>
+<summary>12/08</summary>
+<div markdown="1">
+
+### 21-12-07
+- function 복습
+  
+  
+</div>
+</details>
+
+
 
 
 
