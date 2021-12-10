@@ -743,8 +743,28 @@ int main() {
 </div>
 </details>
 
+<details>
+<summary>12/09</summary>
+<div markdown="1">
 
-.
+### 21-12-09
+- function 복습
+  
+  
+</div>
+</details>
+
+<details>
+<summary>12/10</summary>
+<div markdown="1">
+
+### 21-12-10
+- 배열 + 포인터 + function
+  
+  
+</div>
+</details>
+
 
 
 ###### Reference: https://modoocode.com/
