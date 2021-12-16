@@ -810,7 +810,16 @@ int main() {
 </details>
 
 
+<details>
+<summary>12/16</summary>
+<div markdown="1">
 
+### 21-12-16
+ - String(문자열), Structure(구조체)
+  
+  
+</div>
+</details>
 
 
   
