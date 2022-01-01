@@ -653,6 +653,10 @@ int main() {
 ## Dec 2021
 
 <details>
+<summary>2021/12</summary>
+<div markdown="1">
+
+<details>
 <summary>12/01</summary>
 <div markdown="1">
   
@@ -777,50 +781,36 @@ int main() {
 </details>
 
 <details>
-<summary>12/13</summary>
+<summary>12/13~12/31</summary>
 <div markdown="1">
 
-### 21-12-13
- - 
+### 21-12-13 ~ 21-12-31
+ - 사지방 고장
   
   
 </div>
 </details>
+
+</div>
+</details>
+
+
+## Jan 2022
 
 <details>
-<summary>12/13</summary>
+<summary>2022/01</summary>
 <div markdown="1">
-
-### 21-12-13
- - 
-  
-  
-</div>
-</details>
 
 <details>
-<summary>12/14</summary>
+<summary>01/01</summary>
 <div markdown="1">
 
-### 21-12-14
- - 
-  
-  
+- Restart
+
 </div>
 </details>
 
-
-<details>
-<summary>12/16</summary>
-<div markdown="1">
-
-### 21-12-16
- - String(문자열), Structure(구조체)
-  
-  
 </div>
 </details>
 
-
-  
 ###### Reference: https://modoocode.com/
