@@ -805,7 +805,7 @@ int main() {
 <summary>01/01</summary>
 <div markdown="1">
 
-- Restart
+- Restart(배열)
 
 </div>
 </details>
@@ -814,10 +814,22 @@ int main() {
 <summary>01/02</summary>
 <div markdown="1">
 
-- Restart2
+- Restart2(배열 및 포인터)
 
 </div>
 </details>
+
+
+<details>
+<summary>01/03</summary>
+<div markdown="1">
+
+- Restart3(배열 및 포인터)
+
+</div>
+</details>
+
+
 
 </div>
 </details>
