@@ -837,9 +837,6 @@ int main() {
 </div>
 </details>
 
-</div>
-</details>
-
 <details>
 <summary>01/05</summary>
 <div markdown="1">
@@ -849,7 +846,24 @@ int main() {
 </div>
 </details>
 
+<details>
+<summary>01/06</summary>
+<div markdown="1">
+
+- 포인터
+
 </div>
 </details>
+
+</div>
+</details>
+
+</div>
+</details>
+
+
+
+
+
 
 ###### Reference: https://modoocode.com/
