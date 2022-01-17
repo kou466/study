@@ -882,6 +882,23 @@ int main() {
 </div>
 </details>
 
+<details>
+<summary>01/10 ~ 01/16</summary>
+<div markdown="1">
+
+- 사지방 고장
+
+</div>
+</details>
+
+<details>
+<summary>01/17</summary>
+<div markdown="1">
+
+- 
+
+</div>
+</details>
 
 </div>
 </details>
