@@ -901,10 +901,15 @@ int main() {
 <div markdown="1">
 
 <details>
-<summary>02/14</summary>
+<summary>02/25</summary>
 <div markdown="1">
 
-1. 
+### 돌고돌아 포인터
+- 메모리 상에 위치한 특정한 데이터의 (시작) 주소값을 보관하는 변수
+
+- &연산자 - 피연산자의 주소값을 불러옴
+
+- *연산자 - 
 
 </div>
 </details>
