@@ -1159,6 +1159,19 @@ arr[2] = &c;
 </div>
 </details>
 
+<details>
+<summary>03/06</summary>
+<div markdown="1">
+
+### function(1) 문제 풀기
+[function(1) prob.1.c](https://github.com/kou466/study/blob/main/src/modoocode/MagicBox.c)  
+[function(1) Prob.2.c](https://github.com/kou466/study/blob/main/src/modoocode/function(1)%20Prob.2.c)  
+[function(1) Prob.3.c](https://github.com/kou466/study/blob/main/src/modoocode/function(1)%20Prob.3.c)  
+[function(1) Prob.4.c](https://github.com/kou466/study/blob/main/src/modoocode/function(1)%20Prob.4.c)  
+
+</div>
+</details>
+
 </div>
 </details>
 
