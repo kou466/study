@@ -5,6 +5,7 @@ int prime(int n) {
   int pnum = 0;
   
   for (int i = 2; i <= n; i++) {
+    cnt = 0;
     for (int j = 1; j <= i; j++){
       if(i % j == 0) {
         cnt++;
@@ -13,7 +14,6 @@ int prime(int n) {
     if (cnt == 2) {
       pnum++;
     }
-    cnt = 0;
   }
 
   return pnum;
