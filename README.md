@@ -1250,7 +1250,8 @@ int add_number(int *parr) {
 }
 ```
 - Function(2) 문제 풀기
-
+  [function(2) Prob.1.c](https://github.com/kou466/study/blob/main/src/modoocode/function(2)%20Prob.1.c)
+  
 </div>
 </details>
 
