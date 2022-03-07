@@ -1163,11 +1163,92 @@ arr[2] = &c;
 <summary>03/06</summary>
 <div markdown="1">
 
-### function(1) 문제 풀기
+### Function(1) 문제 풀기
 [function(1) prob.1.c](https://github.com/kou466/study/blob/main/src/modoocode/MagicBox.c)  
 [function(1) Prob.2.c](https://github.com/kou466/study/blob/main/src/modoocode/function(1)%20Prob.2.c)  
 [function(1) Prob.3.c](https://github.com/kou466/study/blob/main/src/modoocode/function(1)%20Prob.3.c)  
 [function(1) Prob.4.c](https://github.com/kou466/study/blob/main/src/modoocode/function(1)%20Prob.4.c)  
+
+</div>
+</details>
+
+<details>
+<summary>03/07</summary>
+<div markdown="1">
+
+### 함수 Function 2
+
+- 포인터 복습
+  - 특정한 변수의 메모리 상의 주소값을 저장하는 변수
+  - int형 변수의 주소값을 저장하면 int*
+  - char형 변수는 char*
+  - 단항 연산자 *를 이용하여 자신이 가리키는 변수를 지칭할 수 있다.
+  - & 연산자를 이용하여 특정한 변수의 조건을 알아낼 수 있다.
+
+
+- 포인터로 받는 인자
+```c
+/* 드디어 써먹는 포인터 */
+#include <stdio.h>
+int change_val(int *pi) { // pi는 i의 주소값을 가짐
+  printf("----- chage_val 함수 안에서 -----\n");
+  printf("pi 의 값 : %p \n", pi);
+  printf("pi 가 가리키는 것의 값 : %d \n", *pi); // * 연산자 '내가 가지는 주소값에 해당하는 변수를 의미해라' -> *pi는 pi가 가리키는 i를 의미함
+
+  *pi = 3; // pi가 가리키고 있는 변수(i)의 값을 3으로 변경
+
+  printf("----- change_val 함수 끝~~ -----\n");
+  return 0;
+}
+int main() {
+  int i = 0;
+
+  printf("i 변수의 주소값 : %p \n", &i);
+  printf("호출 이전 i 의 값 : %d \n", i);
+  change_val(&i); // i라는 변수의 '주소값'을 인자로 전달
+  printf("호출 이후 i 의 값 : %d \n", i);
+
+  return 0;
+}
+```
+> __어떠한 함수가 특정한 타입의 변수/배열의 값을 바꾸려면 함수의 인자는 반드시 그 타입을 가리키는 포인터를 이용해야 한다__
+
+- 함수의 원형(prototype)
+  - 소스 코드의 제일 윗 부분에 함수의 원형을 추가
+  > 대부분 함수를 main함수의 뒤에 정의하고 원형을 앞에 추가하는 것을 선호함
+
+
+- 배열을 인자로 받기
+```c
+// 배열을 인자로 받아 그 배열의 각 원소의 값을 1씩 증가시키는 함수
+
+#include <stdio.h>
+
+int add_number(int *parr); // 1차원 배열을 가리키는 포인터는 int* 형 -> *parr은 arr를 가리킴
+int main() {
+  int arr[3];
+  int i;
+
+  /* 사용자로 부터 3 개의 원소를 입력 받는다. */
+  for (i = 0; i < 3; i++) {
+    scanf("%d", &arr[i]);
+  }
+
+  add_number(arr); // arr는 배열의 시작 주소 값을 가지고 있다. arr = &arr[0]
+
+  printf("배열의 각 원소 : %d, %d, %d", arr[0], arr[1], arr[2]);
+
+  return 0;
+}
+int add_number(int *parr) {
+  int i;
+  for (i = 0; i < 3; i++) {
+    parr[i]++; 
+  }
+  return 0;
+}
+```
+- Function(2) 문제 풀기
 
 </div>
 </details>
