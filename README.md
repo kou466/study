@@ -1353,3 +1353,4 @@ int main()
 
 
 ###### Reference: https://modoocode.com/
+###### Reference2: https://dojang.io/mod/page/view.php?id=279
