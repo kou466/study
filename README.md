@@ -932,7 +932,7 @@ int *p; // 포인터가 가리키는 데이터 타입(여기서는 int형)
 p = &a; // 메모리에서 차지하는 모든 주소들의 위치가 들어있는 것이 아니라 '시작주소'만 들어있다
 *p = 4;
 ```
-- 포인터는 __변수__다  
+- 포인터는 **변수**다  
 -> 포인터에 들어간 주소값이 바뀔 수 있다.
 
 
@@ -1249,9 +1249,65 @@ int add_number(int *parr) {
   return 0;
 }
 ```
-- Function(2) 문제 풀기  
-  [function(2) Prob.1.c](https://github.com/kou466/study/blob/main/src/modoocode/function(2)%20Prob.1.c)
-  
+- Function(2) 문제 풀기
+
+</div>
+</details>
+
+<details>
+<summary>03/07</summary>
+<div markdown="1">
+
+### 함수 Function 3
+
+- 복습
+  - 어떠한 함수가 특정한 타입의 변수/배열의 값을 바꾸려면 함수의 인자는 반드시 특정한 타입을 가리키는 포인터 형을 이용해야 한다.
+
+
+- 더블 포인터 인자
+  - int* 타입을 가리키는 포인터의 타입은 int** 이다.
+```c
+/* 눈 돌아가는 예제. 포인터가 가리키는 변수를 서로 바꾼다.  */
+#include <stdio.h>
+
+int pswap(int **pa, int **pb);
+int main() {
+  int a, b;
+  int *pa, *pb;
+
+  pa = &a;
+  pb = &b;
+
+  printf("pa 가 가리키는 변수의 주소값 : %p \n", pa);
+  printf("pa 의 주소값 : %p \n \n", &pa);
+  printf("pb 가 가리키는 변수의 주소값 : %p \n", pb);
+  printf("pb 의 주소값 : %p \n", &pb);
+
+  printf(" ------------- 호출 -------------- \n");
+  pswap(&pa, &pb);
+  printf(" ------------- 호출끝 -------------- \n");
+
+  printf("pa 가 가리키는 변수의 주소값 : %p \n", pa);
+  printf("pa 의 주소값 : %p \n \n", &pa);
+  printf("pb 가 가리키는 변수의 주소값 : %p \n", pb);
+  printf("pb 의 주소값 : %p \n", &pb);
+  return 0;
+}
+int pswap(int **ppa, int **ppb) {
+  int *temp = *ppa;
+
+  printf("ppa 가 가리키는 변수의 주소값 : %p \n", ppa);
+  printf("ppb 가 가리키는 변수의 주소값 : %p \n", ppb);
+
+  *ppa = *ppb;
+  *ppb = temp;
+
+  return 0;
+}
+```
+- 위 코드 이해하기
+- 더블 포인터 복습하기
+
 </div>
 </details>
 
