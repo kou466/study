@@ -1307,6 +1307,28 @@ int pswap(int **ppa, int **ppb) {
 ```
 - 위 코드 이해하기
 - 더블 포인터 복습하기
+  - **더블 포인터는 싱글 포인터의 주소 값을 저장하기 위한 포인터이다.**
+```c
+#include <stdio.h>
+
+int main()
+{
+    int *numPtr1;     // 단일 포인터 선언
+    int **numPtr2;    // 이중 포인터 선언
+    int num1 = 10;
+
+    numPtr1 = &num1;    // num1의 메모리 주소 저장 
+
+    numPtr2 = &numPtr1; // numPtr1의 메모리 주소 저장
+
+    printf("%d\n", **numPtr2);    // 20: 포인터를 두 번 역참조하여 num1의 메모리 주소에 접근
+
+    return 0;
+}
+```
+> 위 코드를 그림으로 보면 아래와 같다.
+
+![doublePointer](./src/img/doublePointer)
 
 </div>
 </details>
