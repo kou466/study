@@ -1255,7 +1255,7 @@ int add_number(int *parr) {
 </details>
 
 <details>
-<summary>03/07</summary>
+<summary>03/08</summary>
 <div markdown="1">
 
 ### 함수 Function 3
@@ -1328,7 +1328,7 @@ int main()
 ```
 > 위 코드를 그림으로 보면 아래와 같다.
 
-![doublePointer](./src/img/doublePointer)
+![doublePointer](./src/img/doublePointer.png)
 
 </div>
 </details>
