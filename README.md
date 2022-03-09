@@ -1099,7 +1099,7 @@ int (*parr)[3] = &arr;
 <summary>03/04</summary>
 <div markdown="1">
 
-### 진짜 마지막 포인터
+### 진짜 진짜 마지막 포인터
 
 - `int (*parr)[3]; // 배열의 형 (*포인터 이름)[2차원 배열의 열 개수]`
   - **parr은 크기가 3인 배열을 가리키는 포인터를 의미**
@@ -1348,7 +1348,111 @@ int main()
 
 ### 함수 Function 3 및 어제자 복습
 
-- 
+- 2차원 배열을 인자로 받는 함수
+```c
+/* 2 차원 배열의 각 원소를 1 씩 증가시키는 함수 */
+#include <stdio.h>
+/* 열의 개수가 2 개인 이차원 배열과, 총 행의 수를 인자로 받는다. */
+int add1_element(int (*arr)[2], int row);
+// 열의 개수가 2개인 2차원 배열을 가리키는 포인터, 함수의 행의 수를 받는 인자
+
+int main() {
+  int arr[3][2];
+  int i, j;
+
+  for (i = 0; i < 3; i++) {
+    for (j = 0; j < 2; j++) {
+      scanf("%d", &arr[i][j]);
+    }
+  }
+
+  add1_element(arr, 3);
+
+  for (i = 0; i < 3; i++) {
+    for (j = 0; j < 2; j++) {
+      printf("arr[%d][%d] : %d \n", i, j, arr[i][j]);
+    }
+  }
+  return 0;
+}
+int add1_element(int (*arr)[2], int row) {
+  int i, j;
+  for (i = 0; i < row; i++) {
+    for (j = 0; j < 2; j++) {
+      arr[i][j]++;
+    }
+  }
+
+  return 0;
+}
+```
+- 인자를 받는 것이 어렵게 느껴지기에, **함수의 인자의 경우에만** 아래 형태로 표현이 가능하다.
+```c
+int add1_element(int (*arr)[2], int row)
+/*================동일=================*/
+int add1_element(int arr[][2], int row)
+```
+> 만약 `int parr[][3] = arr;`의 문장을 이용했다면 컴퓨터는 parr을 '열의 개수가 3개이고 행의 개수는 정해지지 않은 배열'이라고 생각하여 오류를 내게된다.
+
+- 다차원 배열의 인자도 정의 가능하다.
+```c
+int multi(int (*arr)[3][2][5]) {
+  arr[1][1][1][1] = 1;
+  return 0;
+}
+/*=============혹은=============*/
+int multi(int arr[][3][2][5]) {
+  arr[1][1][1][1] = 1;
+  return 0;
+}
+```
+
+- 상수인 인자
+  - 상수로 인자를 받아들이는 경우 대부분은 함수를 호출해도 그 인자의 값이 바뀌지 않는 경우에 자주 사용한다.
+  - ex) `int read_val(const int val);`
+ 
+- 함수 포인터
+  - 메모리 상에 올라간 함수의 시작 주소를 가리키는 역할을 하게 된다.
+  - 함수 포인터가 함수를 가리키기 위해서는 그 함수의 시작 주소값을 알아야 하는데, 배열과 마찬가지로 **함수의 이름이 바로 함수의 시작 주소값**이다.
+```c
+/* 함수 포인터 */
+#include <stdio.h>
+
+int max(int a, int b);
+int main() {
+  int a, b;
+  int (*pmax)(int, int); // 함수 포인터 pmax의 정의
+  pmax = max; // max함수와 pmax의 정의가 일치하므로, max함수의 시작 주소값을 pmax에 대입할 수 있다.
+
+  scanf("%d %d", &a, &b);
+  printf("max(a,b) : %d \n", max(a, b));
+  printf("pmax(a,b) : %d \n", pmax(a, b));
+  // pmax는 max함수를 가리키므로 pmax를 통해 max함수가 할 수 있었던 모든 작업들을 할 수 있다.
+  
+  return 0;
+}
+int max(int a, int b) {
+  if (a > b)
+    return a;
+  else
+    return b;
+
+  return 0;
+}
+```
+- - 함수 포인터의 정의
+    - 함수 포인터의 일반적인 정의
+  >(함수의 리턴형) (*포인터 이름) (첫번째 인자 타입, 두번째 인자 타입, ...)  
+  >만일 인자가 없다면 괄호 안을 비워두면 된다. 즉, int (*a)() 와 같이 하면 된다.
+
+  - max함수와 donothing함수가 함수 포인터 pfunc와 정의가 일치하면 pfunc는 *두 개의 함수를 가리킬 수 있다.*
+  - 인자의 형이 무엇인지 알기 힘든 경우가 있다.
+    - ex) `int increase(int (*arr)[3], int row);`
+    - 특정한 타입의 인자를 판별하는 일은 단순히 변수의 이름만을 빼버리면 된다.
+    - 첫 번째 인자의 형은 `int (*)[3]
+    - 두 번째 인자의 형은 `int`
+    - 즉 increase 함수를 가리키는 함수 포인터의 원형은 아래와 같다.
+    - `int (*pfunc)(int (*)[3], int);`
 
 </div>
 </details>
