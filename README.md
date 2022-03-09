@@ -1388,9 +1388,9 @@ int add1_element(int (*arr)[2], int row) {
 ```
 - 인자를 받는 것이 어렵게 느껴지기에, **함수의 인자의 경우에만** 아래 형태로 표현이 가능하다.
 ```c
-int add1_element(int (*arr)[2], int row)
+int add1_element(int (*arr)[2], int row);
 /*================동일=================*/
-int add1_element(int arr[][2], int row)
+int add1_element(int arr[][2], int row);
 ```
 > 만약 `int parr[][3] = arr;`의 문장을 이용했다면 컴퓨터는 parr을 '열의 개수가 3개이고 행의 개수는 정해지지 않은 배열'이라고 생각하여 오류를 내게된다.
 
