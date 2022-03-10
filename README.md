@@ -1457,6 +1457,17 @@ int max(int a, int b) {
 </div>
 </details>
 
+<details>
+<summary>03/10</summary>
+<div markdown="1">
+
+### 문제
+
+- [function(3) prob.1.c](https://github.com/kou466/study/blob/main/src/modoocode/function(3)%20prob.1.c)  
+
+</div>
+</details>
+
 </div>
 </details>
 
