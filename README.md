@@ -1463,7 +1463,7 @@ int max(int a, int b) {
 
 ### 문제
 
-- [function(3) prob.1.c](https://github.com/kou466/study/blob/main/src/modoocode/function(3)%20prob.1.c)  
+- [function(3) prob.1.c](https://github.com/kou466/study/blob/main/src/modoocode/function(3)%20Prob.1.c)  
 
 </div>
 </details>
