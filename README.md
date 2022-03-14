@@ -1478,11 +1478,58 @@ int max(int a, int b) {
 </details>
 
 <details>
-<summary>03/13</summary>
+<summary>03/13-14</summary>
 <div markdown="1">
   
 ### 문자열 String
-  
+
+- 컴퓨터는 문자열을 문자들의 배열, 즉 char 배열에 저장한다.
+
+- 널 - 종료 문자열 (Null-terminated string)
+  - `char s[3];` 이렇게 문자열 s를 정의했을 때 불편함이 생긴다. 문자열을 이용할 때 마다 문자열의 길이를 알아야 하기 때문이다.
+  - 위에 대한 대안으로 문자열의 끝에 **여기 까지가 문자열이다** 라고 알려주는 종료 문자를 넣은것이다.
+  - 종료 문자는 아스키 값이 0이고, '\0'라고 나타낸다. 이때, 문자 '0'과 헷갈려서는 안된다.(문자 '0'은 아스키값이 48임)
+  - 이 종료 문자를 가리켜서 널(Null)이라고 부른다.
+ 
+  - Null문자가 들어갈 공간이 있어야 하기 때문에 3글자라도 배열은 4칸이 필요하다.
+
+```c
+// null_1부터 null_3까지 모두 동일하다.
+char null_1 = '\0';
+char null_2 = 0;
+char null_3 = (char)NULL;
+
+// sentence_4에서 Null값을 넣어줘야 하기때문에 문자의 개수보다 배열의 크기를 1 크게 해야한다.
+char sentence_1[4] = {'P', 's', 'i', '\0'};
+  char sentence_2[4] = {'P', 's', 'i', 0};
+  char sentence_3[4] = {'P', 's', 'i', (char)NULL};
+  char sentence_4[4] = {"Psi"};
+  // sentence_4는 배열의 시작점을 가리키고 있으니 출력문에 바로 사용 가능하다.
+  printf("sentence_4 : %s \n", sentence_4);
+```
+|`""`|`''`|
+|---|---|
+|큰 따옴표는 문자열 (한 개 이상의 문자)를 지정할 때 사용된다. </br> 예) "abd", "asdfasdf", "sentence", "a" 등|작은 따옴표는 한 개의 문자를 지정할 때 사용된다. </br> 예) 'a', 'b', '\0' (틀린 표현: 'abc', 'ab', 'cd' 등|
+
+```c
+/* 포인터 간단 복습 */
+#include <stdio.h>
+int main() {
+  char word[30] = {"long sentence"};
+  char *str = word;
+
+  printf("%s \n", str);
+
+  return 0;
+}
+```
+
+- char*를 이용해서 char 배열을 가리킬 수 있기에, str이라는 char를 가리키는 포인터가 배열 word를 가리키고 있다.
+
+- 문자열 바꾸기도 가능하다.
+  - `char word[] = {"long sentence"};` 이 문장에서 원소의 개수는 컴파일러가 알아서 원소의 수를 세어넣는다.
+  - 이때 `char[0] = 'a';` 와 같은 식으로 문자열을 바꿀 수 있다.
+
 </div>
 </details>
   
