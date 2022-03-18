@@ -1542,6 +1542,17 @@ int main() {
 </div>
 </details>
   
+<details>
+<summary>03/18</summary>
+<div markdown="1">  
+  
+### 문자열 String (1)
+
+- 특정 문자열에 들어있는 문자의 개수를 세는 법
+  
+</div>
+</details>
+  
 </div>
 </details>
 
