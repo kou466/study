@@ -1469,15 +1469,6 @@ int max(int a, int b) {
 </details>
 
 <details>
-<summary>03/12</summary>
-<div markdown="1">
-  
-### 휴식
-  
-</div>
-</details>
-
-<details>
 <summary>03/13-14</summary>
 <div markdown="1">
   
@@ -1530,15 +1521,6 @@ int main() {
   - `char word[] = {"long sentence"};` 이 문장에서 원소의 개수는 컴파일러가 알아서 원소의 수를 세어넣는다.
   - 이때 `char[0] = 'a';` 와 같은 식으로 문자열을 바꿀 수 있다.
 
-</div>
-</details>
-
-<details>
-<summary>03/15-17</summary>
-<div markdown="1">  
-  
-- 최근 아무것도 하기 싫다.
-  
 </div>
 </details>
   
