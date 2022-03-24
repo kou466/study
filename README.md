@@ -1558,6 +1558,18 @@ int main() {
   
 </div>
 </details>
+
+<details>
+<summary>03/24</summary>
+<div markdown="1">  
+  
+### 문자열 String (2)
+  
+- 버퍼 및 scanf에 대한 고질적인 문제
+  
+  
+</div>
+</details>
   
 </div>
 </details>
