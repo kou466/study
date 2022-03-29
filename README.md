@@ -1523,11 +1523,11 @@ int main() {
 
 </div>
 </details>
-  
+
 <details>
 <summary>03/18</summary>
 <div markdown="1">  
-  
+
 ### 문자열 String (1)
 
 - 특정 문자열에 들어있는 문자의 개수를 세는 법
@@ -1535,57 +1535,82 @@ int main() {
 - 문자열 입력받기
   - 배열(char words[30];)또한 scanf로 입력을 받는데 문자열일 경우 '%s'를 통해 받는다. 
   - scanf를 사용했을 경우 &words가 아닌 그냥 words로 써야한다.
-  
+
 </div>
 </details>
- 
+
 <details>
 <summary>03/19</summary>
 <div markdown="1">  
-  
+
 ### 문자열 String (1)
 
 - 문제 풀이
-  
+
 </div>
 </details>
-  
+
 <details>
 <summary>03/22</summary>
 <div markdown="1">  
-  
+
 ### 문자열 String (2)
-  
+
 </div>
 </details>
 
 <details>
 <summary>03/24</summary>
 <div markdown="1">  
-  
+
 ### 문자열 String (2)
-  
+
 - 버퍼 및 scanf에 대한 고질적인 문제
-  
-  
+
+
 </div>
 </details>
-  
+
 <details>
 <summary>03/28</summary>
 <div markdown="1">  
   
 ### 번외 - 디버깅 Debugging
-  
+
 - 디버깅(Debugging)?
   - 컴퓨터에 오류가 생기면 버그(bug)가 생겼다고들 한다. 왜 bug일까?
     - 1940년 그레이스 호퍼(Grace Hopper)라는 컴퓨터 과학자는 하버드 대학교 MK.Ⅱ 컴퓨터를 작동 시키던 도중 연산에 문제가 생겨 원인을 분석하다가 컴퓨터에 나방이 들어가 문제를 일으켰다는 것을 알게 되었다. 그녀는 이 나방을 꺼내고 곤충을 잡았다 라고 해서 디버그(Debug)했다고 기록했다.
-  -이 일로 인해 컴퓨터에 발생한 문제를 '버그', 이를 고치는 일을 '디버그'라고 부르게 되었다.
-  
-  
+  - 이 일로 인해 컴퓨터에 발생한 문제를 '버그', 이를 고치는 일을 '디버그'라고 부르게 되었다.
+
 </div>
 </details>
-  
+
+<details>
+<summary>03/29</summary>
+<div markdown="1">  
+
+### 번외 - 디버깅 Debugging
+
+- 디버깅은 C 프로그래밍을 배우면서 꼭 필요한 스킬이다. 적절한 디버깅을 통해 문제를 찾아낼 수 있기 때문이다.
+```c
+#include <stdio.h>
+int main() {
+  char a, b, c;
+  a = 100;
+  b = 300;
+  c = a + b;
+
+  printf("%d + %d = %d \n", a, b, c);
+  return 0;
+}
+```
+- 위 코드의 실행 결과는 `100 + 44 = -112`로 출력된다. 이상하지 않은가? 이때 사용하는 것이 바로 디버깅이다.
+    - VS기준으로 F10을 누르면 코드를 분석하는 디버깅 모드로 들어간다. 여기서 필요한 부분은 코드부분의 **노란 화살표**와 아래에 있는 **조사식** 부분이다.
+    - 앞서 말했듯, 디버깅을 하는 이유는 버그를 찾아내기 위함이다. 그런데 버그를 찾지 못하는 것은 컴퓨터의 연산속도가 매우 빠르기 때문인데, 디버깅을 할 때에는 사용자로 하여금 각 문장이 실행되는 과정을 천천히 살펴볼 수 있기에 어느 부분에서 문제가 발생한 것인지를 알 수 있다.
+
+</div>
+</details>
+
 </div>
 </details>
 
