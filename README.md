@@ -1518,8 +1518,8 @@ int main() {
 - char*를 이용해서 char 배열을 가리킬 수 있기에, str이라는 char를 가리키는 포인터가 배열 word를 가리키고 있다.
 
 - 문자열 바꾸기도 가능하다.
-  - `char word[] = {"long sentence"};` 이 문장에서 원소의 개수는 컴파일러가 알아서 원소의 수를 세어넣는다.
-  - 이때 `char[0] = 'a';` 와 같은 식으로 문자열을 바꿀 수 있다.
+  - `char word[] = {"long sentence"};` 이 문장에서 '[]' 안 원소의 개수는 컴파일러가 알아서 원소의 수를 세어넣는다.
+  - 이때 `word[0] = 'a';` 와 같은 식으로 문자열을 바꿀 수 있다.
 
 </div>
 </details>
@@ -1531,10 +1531,48 @@ int main() {
 ### 문자열 String (1)
 
 - 특정 문자열에 들어있는 문자의 개수를 세는 법
+```c
+#include <stdio.h>
+int str_length(char *str);
+int main() {
+  char str[] = {"What is your name?"};
+
+  printf("이 문자열의 길이 : %d \n", str_length(str));
+
+  return 0;
+}
+int str_length(char *str) {
+  int i = 0;
+  while (str[i]) {
+    i++;
+  }
+
+  return i;
+}
+```
+> 일차원 배열을 가리키는 포인터는 `(그 배열의 형)*`
+
+- - `str_length`라는 함수에서 while문의 조건 부분을 보면 str[i]가 0이 될때 까지 i의 값을 계속 증가 시킨다고 되어있다.
+  - 문자열에서 0이 되는 순간은 NULL문자일때이다. 즉, 문자열의 끝 부분에 도달했을 때 0이 되는 것이기 때문에 i에는 맨 마지막의 NULL문자를 제외한 나머지 문자들의 총 개수가 된다.
+
 
 - 문자열 입력받기
-  - 배열(char words[30];)또한 scanf로 입력을 받는데 문자열일 경우 '%s'를 통해 받는다. 
-  - scanf를 사용했을 경우 &words가 아닌 그냥 words로 써야한다.
+```c
+/* 문자열 입력 */
+#include <stdio.h>
+int main() {
+  char words[30]; // 최대 29글자 까지 저장할 수 있는 문자 배열 : 마지막에 NULL이 들어가기 때문에 30자가 아님
+
+  printf("30 자 이내의 문자열을 입력해주세요! : ");
+  scanf("%s", words);
+
+  printf("문자열 : %s \n", words);
+
+  return 0;
+}
+```
+- - 배열(char words[30];)또한 scanf로 입력을 받는데 하나의 문자는 `%c`, 문자열일 경우 `%s`를 통해 받는다. 
+  - scanf를 사용했을 경우 `&`를 이용해서 주소값을 전달하지 않고 배열의 이름 자체가 배열을 가리키는 포인터이기 때문에 &words가 아닌 그냥 words로 써야한다.
 
 </div>
 </details>
@@ -1555,6 +1593,28 @@ int main() {
 <div markdown="1">  
 
 ### 문자열 String (2)
+
+- 버퍼(stdin)에 대한 이해
+  - **버퍼(buffer)**
+```c
+/* 이상한 scanf */
+#include <stdio.h>
+int main() {
+  int num;
+  char c;
+
+  printf("숫자를 입력하세요 : ");
+  scanf("%d", &num);
+
+  printf("문자를 입력하세요 : ");
+  scanf("%c", &c);
+  return 0;
+}
+```
+- - 수 많은 버퍼 중에서도 키보드의 입력을 처리하는 버퍼는 입력 버퍼, 혹은 stdin(입력 스트림)이라 부르는 것이다.
+  - 즉, 우리가 키보드로 치는 모든 정보는 일시적으로 `stdin`에 저장되었다가 나중에 입력이 종료되면 한번에 처리하게 된다.
+  - 컴퓨터에서 우리가 입력을 종료했다는것을 알 수 있는 방법은 엔터(`\n`, 개행문자)를 이용하여 '입력을 종료했으니 버퍼에 있는 내용을 사용하라'는 의미로 받아들인다.
+  - 그런데 컴퓨터는 `\n`까지 버퍼에 저장하는데, scanf함수에서 stdin으로부터 숫자를 얻어온다.
 
 </div>
 </details>
@@ -1628,6 +1688,16 @@ int main() {
 
 - 우리가 디버깅을 하지 않았다고 해도 위 예제에서는 char 범위 때문에 그렇다는 것을 알 수 있었겠지만, 실제로 우리가 만들 프로그램은 훨씬 복잡하기에 이런 디버깅 과정을 거쳐 문제가 생긴 부분을 찾아 낼 수 있다.
  
+</div>
+</details>
+
+<details>
+<summary>03/31</summary>
+<div markdown="1">
+
+### String (2)
+
+
 </div>
 </details>
 
