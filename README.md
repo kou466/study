@@ -1730,6 +1730,18 @@ int main() {
 </div>
 </details>
 
+<details>
+<summary>04/03</summary>
+<div markdown="1">
+
+### String (3)
+
+- 문자열 리터럴(literal)에 대해
+
+
+</div>
+</details>
+
 </div>
 </details>
 
