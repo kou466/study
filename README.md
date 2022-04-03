@@ -1737,7 +1737,19 @@ int main() {
 ### String (3)
 
 - 문자열 리터럴(literal)에 대해
+```c
+/* 문자열 */
+#include <stdio.h>
+int main() {
+  char str[] = "sentence";
+  char *pstr = "sentence";
 
+  printf("str : %s \n", str);
+  printf("pstr : %s \n", pstr);
+
+  return 0;
+}
+```
 
 </div>
 </details>
