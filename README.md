@@ -1865,7 +1865,13 @@ str1 = str1 + str2;
 ### String (3)
 
 - 문자열을 다루기 위한 함수 만들기
-
+  1. [문자열 내의 총 문자의 수를 세는 함수](https://github.com/kou466/study/blob/main/src/modoocode/String(3)_func(1).c)
+  2. 문자열을 복사하는 함수
+  3. 문자열을 합치는 함수 (즉 더하는 함수)
+  4. 문자열을 비교하는 함수
+ 
+- **문자열을 복사하는 함수**
+  - 
 
 </div>
 </details>
@@ -1874,7 +1880,7 @@ str1 = str1 + str2;
 <summary>04/06</summary>
 <div markdown="1">
 
-### String (4) - 도서 관리 프로젝트 (2)
+### String (4) - 도서 관리 프로젝트
 
 
 
@@ -1885,7 +1891,18 @@ str1 = str1 + str2;
 <summary>04/07</summary>
 <div markdown="1">
 
-### String (4) - 도서 관리 프로젝트 (2)
+### String (4) - 도서 관리 프로젝트
+
+
+
+</div>
+</details>
+
+<details>
+<summary>04/08</summary>
+<div markdown="1">
+
+### String (4) - 도서 관리 프로젝트
 
 
 
