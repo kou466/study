@@ -1889,9 +1889,10 @@ str1 = str1 + str2;
 <summary>04/06</summary>
 <div markdown="1">
 
-### String (4) - 도서 관리 프로젝트
+### String (3)
 
-
+- **문자열을 합치는(더하는) 함수**
+  - 
 
 </div>
 </details>
@@ -1900,9 +1901,10 @@ str1 = str1 + str2;
 <summary>04/07</summary>
 <div markdown="1">
 
-### String (4) - 도서 관리 프로젝트
+### String (3)
 
-
+- **문자열을 비교하는 함수**
+  - 
 
 </div>
 </details>
@@ -1911,15 +1913,16 @@ str1 = str1 + str2;
 <summary>04/08</summary>
 <div markdown="1">
 
-### String (4) - 도서 관리 프로젝트
+### String (3)
 
+- 문자열 문제 풀이
 
 
 </div>
 </details>
 
 <details>
-<summary>04/09-11</summary>
+<summary>04/09-12</summary>
 <div markdown="1">
 
 ### String (4) - 도서 관리 프로젝트
