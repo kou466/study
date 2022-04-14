@@ -1880,7 +1880,43 @@ str1 = str1 + str2;
     - 세 번째로 함수의 인자로 무엇을 받아야 하는가를 살펴보면, 당연하게도 *두 개의 문자열을 받아야 하므로 포인터를 사용해야 한다.* 이 때 문자열들은 char형 배열이기에 char*를 인자로 2개 가지는 함수를 만들것이다.
   
 - **문자열을 복사하는 함수**
-  - 
+```c
+/* copy_str 사용 예제 */
+#include <stdio.h>
+int copy_str(char *src, char *dest);
+int main() {
+  char str1[] = "hello";
+  char str2[] = "hi";
+
+  printf("복사 이전 : %s \n", str1);
+
+  copy_str(str1, str2);
+
+  printf("복사 이후 : %s \n ", str1);
+
+  return 0;
+}
+
+// int copy_str(char *dest, char *src);
+// src 의 문자열을 dest 로 복사한다. 단, dest 의 크기가 반드시 src 보다 커야 한다.
+
+int copy_str(char *dest, char *src) {
+  while (*src) {
+    *dest = *src;
+    src++;
+    dest++;
+  }
+
+  *dest = '\0';
+
+  return 1;
+}
+```
+
+- 코드 분석
+  - while문의 조건이 *src이다. → 문자열을 다룰 때 많이 쓰는 방법인데, NULL의 문자 값이 0이므로 *src가 NULL 문자에 도달하기 전까지 while문에 계속 돌아가게 된다.
+  - *dest = *src 를 통해서 src의 문자를 dest에 대입하였고, src와 dest를 각각 1씩 증가시켰다. (포인터의 연산에서 포인터에 1을 더하면 단순히 주소값이 1이 들어가는 것이 아니라 포인터가 가리키는 타입의 크기를 곱한 만큼 증가한다는 사실) 즉, 배열의 그 다음 원소를 가리킬 수 있다는 것이다.
+  - dest에 '\0', 즉 NULL 문자를 넣었는데, 위의 while문에서 src가 NULL이 된다면 while 문을 종료해버렸기 때문에 src에 넣을 틈이 없었는데 마지막에 `*dest = '\0';` 와 같이 처리해줌으로 dest에 NULl문자를 끝부분에 삽입할 수 있게 되었다.
 
 </div>
 </details>
