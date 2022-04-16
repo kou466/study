@@ -1960,7 +1960,7 @@ int copy_str(char *dest, char *src) {
 </details>
 
 <details>
-<summary>04/09-15</summary>
+<summary>04/09-17</summary>
 <div markdown="1">
 
 ### String (4) - 도서 관리 프로젝트
