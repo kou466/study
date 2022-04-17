@@ -1977,6 +1977,5 @@ int copy_str(char *dest, char *src) {
 </details>
 
 
-
 ###### Reference: https://modoocode.com/
 ###### Reference2: https://dojang.io/mod/page/view.php?id=279
