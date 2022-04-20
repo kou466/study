@@ -1974,7 +1974,7 @@ int copy_str(char *dest, char *src) {
 <summary>04/18-22</summary>
 <div markdown="1">
 
-### ???
+### 구조체 Struct
   - 
 
 
