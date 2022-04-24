@@ -1978,6 +1978,8 @@ int stradd(char *dest, char *src) {
 
 - 코드분석
   - stradd의 구조는 단순하다. dest의 끝에 문자열을 덧붙이기 위해서는 먼저 dest문자열의 끝 부분을 찾아야 하기에 `while`문을 통해 dest의 NULL문자의 위치를 찾을 수 있다.(그 위치는 dest가 가리키고 있음)
+  - 이후, 그 NULL 문자가 들어갔던 곳을 포함하여 dest의 끝에 src 문자열을 덧 쓰면 된다.
+
 
 </div>
 </details>
