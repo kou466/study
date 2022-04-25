@@ -2024,7 +2024,7 @@ int stradd(char *dest, char *src) {
 <div markdown="1">
 
 ### 구조체 Struct
-  - 
+  - ?
 
 
 
