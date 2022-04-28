@@ -1979,7 +1979,7 @@ int stradd(char *dest, char *src) {
 - 코드분석
   - stradd의 구조는 단순하다. dest의 끝에 문자열을 덧붙이기 위해서는 먼저 dest문자열의 끝 부분을 찾아야 하기에 `while`문을 통해 dest의 NULL문자의 위치를 찾을 수 있다.(그 위치는 dest가 가리키고 있음)
   - 이후, 그 NULL 문자가 들어갔던 곳을 포함하여 dest의 끝에 src 문자열을 덧 쓰면 된다.
-  - 
+  - 이때, 주의해야 할 점은 *src가 NULL이 되면 while문이 종료되므로 src의 널문자를 복사할 수 없게 된다. 따라서 다음과 같이 dest의 끝부분에 NULL문자를 집어넣어줘야 한다. `*dest = '\0';`
 
 </div>
 </details>
@@ -1991,6 +1991,52 @@ int stradd(char *dest, char *src) {
 ### String (3)
 
 - **문자열을 비교하는 함수**
+```c
+#include <stdio.h>
+int compare(char *str1, char *str2);
+int main() {
+  char str[20] = "hello every1";
+  char str2[20] = "hello everyone";
+  char str3[20] = "hello every1 hi";
+  char str4[20] = "hello every1";
+
+  if (compare(str, str2)) {
+    printf("%s 와 %s 는 같다 \n", str, str2);
+  } else {
+    printf("%s 와 %s 는 다르다 \n", str, str2);
+  }
+
+  if (compare(str, str3)) {
+    printf("%s 와 %s 는 같다 \n", str, str3);
+  } else {
+    printf("%s 와 %s 는 다르다 \n", str, str3);
+  }
+
+  if (compare(str, str4)) {
+    printf("%s 와 %s 는 같다 \n", str, str4);
+  } else {
+    printf("%s 와 %s 는 다르다 \n", str, str4);
+  }
+
+  return 0;
+}
+int compare(char *str1, char *str2) {
+  while (*str1) {
+    if (*str1 != *str2) {
+      return 0;
+    }
+
+    str1++;
+    str2++;
+  }
+
+  if (*str2 == '\0') return 1;
+
+  return 0;
+}
+```
+
+- 코드분석
   - 
 
 </div>
