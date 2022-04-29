@@ -2037,7 +2037,8 @@ int compare(char *str1, char *str2) {
 ```
 
 - 코드분석
-  - 
+  - compare함수가 어떻게 동작하는가?
+    - 먼저 while문에서 strl의 끝부분에 도달할 때까지 각 문자들을 비교한다.
 
 </div>
 </details>
