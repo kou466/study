@@ -2088,6 +2088,9 @@ int compare(char *str1, char *str2) {
 </div>
 </details>
 
+</div>
+</details>
+
 ## May 2022
 
 <details>
@@ -2099,9 +2102,6 @@ int compare(char *str1, char *str2) {
 <div markdown="1">
 
 ### Restart
-
-</div>
-</details>
 
 </div>
 </details>
