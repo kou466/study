@@ -2054,6 +2054,7 @@ int compare(char *str1, char *str2) {
 ### String (3)
 
 - 문자열 문제 풀이
+[String_prob.1.c](https://github.com/kou466/study/blob/main/src/modoocode/String_prob.1.c)
 
 
 </div>
