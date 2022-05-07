@@ -2090,6 +2090,7 @@ int compare(char *str1, char *str2) {
 ```c
 #include <stdio.h>
 
+int main() {
 ```
 
 
