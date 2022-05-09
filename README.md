@@ -2110,7 +2110,7 @@ int main() {
 </details>
 
 <details>
-<summary>04/27~05/13</summary>
+<summary>04/27~05/16</summary>
 <div markdown="1">
 
 ### 파견
@@ -2128,7 +2128,7 @@ int main() {
 <div markdown="1">
 
 <details>
-<summary>05/06</summary>
+<summary>05/16</summary>
 <div markdown="1">
 
 ### Restart
