@@ -2089,8 +2089,35 @@ int compare(char *str1, char *str2) {
   - 여기서 만드는 프로그램은 C언어 실력을 늘리기 위할 뿐이라 단순하게 첫 화면에서 메뉴를 입력받고 입력받은 작업을 수행 한 후 다시 메뉴로 돌아오는것으로 하면 될것이다.
 ```c
 #include <stdio.h>
-
 int main() {
+  int user_choice; /* 유저가 선택한 메뉴*/
+
+  while (1) {
+    printf("도서 관리 프로그램 \n");
+    printf("메뉴를 선택하세요 \n");
+    printf("1. 책을 새로 추가하기 \n");
+    printf("2. 책을 검색하기 \n");
+    printf("3. 책을 빌리기 \n");
+    printf("4. 책을 반납하기 \n");
+    printf("5. 프로그램 종료 \n");
+
+    printf("당신의 선택은 : ");
+    scanf("%d", &user_choice);
+    if (user_choice == 1) {
+      /* 책을 새로 추가하는 함수 호출 */
+    } else if (user_choice == 2) {
+      /* 책을 검색하는 함수 호출 */
+    } else if (user_choice == 3) {
+      /* 책을 빌리는 함수 호출 */
+    } else if (user_choice == 4) {
+      /* 책을 반납하는 함수 호출 */
+    } else if (user_choice == 5) {
+      /* 프로그램을 종료한다. */
+      break;
+    }
+  }
+
+  return 0;
 ```
 
 
