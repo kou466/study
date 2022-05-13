@@ -2119,7 +2119,10 @@ int main() {
 
   return 0;
 ```
+  - `while (1)`은 컴퓨터는 0을 거짓, 0이 아닌 값을 참으로 판별한다. 따라서 while의 조건이 1이므로 언제나 참이 된다. = while문은 break;를 할 때까지 무한 반복하게 된다.
 
+- 이 프로그램에 필요한 변수는?
+  - 책의 제목, 출판사의 이름, 저자의 이름을 저장할 배열이 있어야한다. 또한 현재 이 책의 상태(빌렸는지, 안빌렸는지)를 표시할 수 있는 배열도 필요하며, 현재 책의 총 개수가 있어야지만 나중에 책을 새로 추가할 때 배열의 몇 번쨰 원소에 표시할 지 알 수 있다.
 
 </div>
 </details>
@@ -2137,7 +2140,7 @@ int main() {
 </details>
 
 <details>
-<summary>04/27~05/16</summary>
+<summary>04/27~05/20</summary>
 <div markdown="1">
 
 ### 파견
@@ -2155,7 +2158,7 @@ int main() {
 <div markdown="1">
 
 <details>
-<summary>05/16</summary>
+<summary>05/21</summary>
 <div markdown="1">
 
 ### Restart
