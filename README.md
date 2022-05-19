@@ -2136,6 +2136,12 @@ int borrowed[100];
    - 나머지 변수들 또한 마찬가지인데, borrowed 배열의 경우 원소의 값이 1이면 빌림, 0이면 빌리지 않음이라고 생각하면 된다.
   
 - 무슨 변수가 필요한 지 알았으니 1번 작업, 즉 책을 새로 추가하는 함수를 만들어 본다. 이름은 add_book이고 리턴형은 int이다.
+  - `int add_book() {} // 책을 추가하는 함수`
+  - 일단 함수를 만들기 전에 인자로 무엇을 받아야 하는가?
+  - 책을 추가하려면 책의 이름, 출판사, 저자를 저장할 배열에 대한 포인터를 인자로 받아야 한다. 그래야지만 이 배열에 새로운 책의 정보를 추가할 수 있다.
+  - 또한 borrowed 배열도 인자로 받아서 기본 설정을 해주어야 한다. 기본값은 0, 즉 빌려가지 않음.
+  - num_total_book도 필요한데, 현재 책의 총 수를 알아야 배열의 몇 번째 원소에 값을 저장할 지 알기 때문이다.
+  
 
 </div>
 </details>
@@ -2153,7 +2159,7 @@ int borrowed[100];
 </details>
 
 <details>
-<summary>04/27~05/20</summary>
+<summary>04/27~05/23</summary>
 <div markdown="1">
 
 ### 파견
@@ -2173,7 +2179,7 @@ int borrowed[100];
 <div markdown="1">
 
 <details>
-<summary>05/21</summary>
+<summary>05/23</summary>
 <div markdown="1">
 
 ### Restart
