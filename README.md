@@ -2061,7 +2061,7 @@ int compare(char *str1, char *str2) {
 </details>
 
 <details>
-<summary>04/09-17</summary>
+<summary>04/09-26</summary>
 <div markdown="1">
 
 ### String (4) - 도서 관리 프로젝트
@@ -2147,7 +2147,7 @@ int borrowed[100];
 </details>
 
 <details>
-<summary>04/18-26</summary>
+<summary>04/26</summary>
 <div markdown="1">
 
 ### 구조체 Struct
