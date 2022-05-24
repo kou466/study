@@ -2159,12 +2159,11 @@ int borrowed[100];
 </details>
 
 <details>
-<summary>04/27~05/23</summary>
+<summary>04/27~05/30</summary>
 <div markdown="1">
 
 ### 파견
   - 그만 좀 연장됐으면 좋겠다.
-  - 일주일마다 새로 확진자 나오는거 같다..
 
 </div>
 </details>
@@ -2179,7 +2178,7 @@ int borrowed[100];
 <div markdown="1">
 
 <details>
-<summary>05/23</summary>
+<summary>05/30</summary>
 <div markdown="1">
 
 ### Restart
