@@ -2159,11 +2159,10 @@ int borrowed[100];
 </details>
 
 <details>
-<summary>04/27~05/30</summary>
+<summary>04/27~06/??</summary>
 <div markdown="1">
 
 ### 파견
-  - 그만 좀 연장됐으면 좋겠다.
 
 </div>
 </details>
@@ -2174,14 +2173,14 @@ int borrowed[100];
 ## May 2022
 
 <details>
-<summary>2022/05</summary>
+<summary>2022/06</summary>
 <div markdown="1">
 
 <details>
-<summary>05/30</summary>
+<summary>06/06</summary>
 <div markdown="1">
 
-### Restart
+### 
 
 </div>
 </details>
