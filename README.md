@@ -2147,18 +2147,6 @@ int borrowed[100];
 </details>
 
 <details>
-<summary>04/26</summary>
-<div markdown="1">
-
-### 구조체 Struct
-  - 
-
-
-
-</div>
-</details>
-
-<details>
 <summary>04/27~06/??</summary>
 <div markdown="1">
 
@@ -2180,11 +2168,29 @@ int borrowed[100];
 <summary>06/06</summary>
 <div markdown="1">
 
-### 
+### 구조체 Struct
+  - 구조체에 대한 소개
+    - sims라는 게임을 만든다고 생각했을 때, 게임하는 유저가 사람을 한 명 추가 했다고 한다. 이를 프로그램 상에서 어떻게 저장할까?
+    - "이전에 만들어놓은 문자열 배열의 i번째 원소에 이름을 등록하고, int 형 배열의 i번째 원소에 나이를 등록하고, 성격은..."과 같이 생각할것이다. 이 방법이 도서 관리 프로그램을 만들 때 사용했던 방법이고.
+    - 위와 같이 생각했을 때, i번쨰 책에 대한 정보는 book_name[i-1], auth_name[i-1], publ_name[i-1], borrow[i-1] (i번째이므로, 원소는 [i-1]이 된다.) 배열에 넣어서 보관했다.
+    - 하지만 위 방법에는 살짝 문제점이 있는데, 책의 정보를 수정하기 위해서 함수에 인자로 전달할 때 상당히 불편하다는 사실이다.
+    - 도서 관리 프로그램의 새로운 책을 추가하는 함수였던 add_book 함수의 원형은 `int add_book(char (*book_name)[30], char (*auth_name)[30], char (*publ_name)[30], int *borrowed, int *num_total_book);`인데, num_total_book을 빼더라도 인자가 너무 길다.
+    - Sims에서 사람 한 명에는 수없이 많은 정보가 있다. 예를 들어 이름, 나이, 직업, 성격(외향적, 내향적, 사교적, ... 등을 모두 수치화 시켜서 보관), 직업, 재산, 가족관계 등 수없이 많은 정보가 있다. 사람의 정보를 수정하기 위해 함수를 호출할 때마다 이러한 정보들을 인자로 전달하려면 불편함이 생긴다.
+  
+    - 배열을 배우기 전에는 예를 들어 10명의 학생이 점수를 보관하기 위해 10개의 변수를 선언해 각각 보관했어야 하지만, 10개의 변수를 한꺼번에 배열로 처리하여 배열의 각각의 원소를 손쉽게 다루기 위해서였다.
 
 </div>
 </details>
 
+<details>
+<summary>06/11</summary>
+<div markdown="1">
+
+### 구조체 Struct (2)
+  - 
+
+</div>
+</details>
 </div>
 </details>
 
