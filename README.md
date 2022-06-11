@@ -2123,6 +2123,7 @@ int main() {
 
 - 이 프로그램에 필요한 변수는?
   - 책의 제목, 출판사의 이름, 저자의 이름을 저장할 배열이 있어야한다. 또한 현재 이 책의 상태(빌렸는지, 안빌렸는지)를 표시할 수 있는 배열도 필요하며, 현재 책의 총 개수가 있어야지만 나중에 책을 새로 추가할 때 배열의 몇 번쨰 원소에 표시할 지 알 수 있다.
+
 ```c
 int user_choice;        /* 유저가 선택한 메뉴 */
 int num_total_book = 0; /* 현재 책의 수 */
@@ -2132,6 +2133,7 @@ char book_name[100][30], auth_name[100][30], publ_name[100][30];
 /* 빌렸는지 상태를 표시 */
 int borrowed[100];
 ```
+
 -  - 이 때 book_name의 크기가 [100][30]인 이유는 이전에도 말했듯이, 도서프로그램에 들어갈 수 있는 책의 최대 개수는 100권이고, 제목의 크기는 최대 30자로 제한되기 때문이다.
    - 나머지 변수들 또한 마찬가지인데, borrowed 배열의 경우 원소의 값이 1이면 빌림, 0이면 빌리지 않음이라고 생각하면 된다.
   
@@ -2141,7 +2143,103 @@ int borrowed[100];
   - 책을 추가하려면 책의 이름, 출판사, 저자를 저장할 배열에 대한 포인터를 인자로 받아야 한다. 그래야지만 이 배열에 새로운 책의 정보를 추가할 수 있다.
   - 또한 borrowed 배열도 인자로 받아서 기본 설정을 해주어야 한다. 기본값은 0, 즉 빌려가지 않음.
   - num_total_book도 필요한데, 현재 책의 총 수를 알아야 배열의 몇 번째 원소에 값을 저장할 지 알기 때문이다.
-  - 
+  - 위 내용을 종합하여 인자를 만들어보면 아래와 같다.
+  > `int add_book(char (*book_name)[30], char (*auth_name)[30], char (*publ_name)[30], int *borrowed, int *num_total_book) {}`
+  > > 인자를 쓰는 부분에 엔터를 쳐도 큰 문제는 없다. C언어는 위 인자들이 같은 문장에 나열되어 있다고 생각하기 때문이다. 인자가 길어져서 보기 흉할 때 자주 쓰는 방법이다.
+
+```c
+/* 책을 추가하는 함수 */
+int add_book(char (*book_name)[30], char (*auth_name)[30],
+             char (*publ_name)[30], int *borrowed, int *num_total_book) {
+  printf("추가할 책의 제목 : ");
+  scanf("%s", book_name[*num_total_book]);
+
+  printf("추가할 책의 저자 : ");
+  scanf("%s", auth_name[*num_total_book]);
+
+  printf("추가할 책의 출판사 : ");
+  scanf("%s", publ_name[*num_total_book]);
+
+  borrowed[*num_total_book] = 0; /* 빌려지지 않음*/
+  printf("추가 완료! \n");
+  (*num_total_book)++;
+
+  return 0;
+}
+```
+
+  - 위와같이 add_book 함수를 만들었다. 이제 add_book 함수를 이용하기 위해 main 함수의 if(user_choice == 1) 부분에 add_book 함수를 호출하는 코드를 넣어주면 된다.
+
+```c
+#include <stdio.h>
+int add_book(char (*book_name)[30], char (*auth_name)[30],
+             char (*publ_name)[30], int *borrowed, int *num_total_book);
+int main() {
+  int user_choice;        /* 유저가 선택한 메뉴 */
+  int num_total_book = 0; /* 현재 책의 수 */
+
+  /* 각각 책, 저자, 출판사를 저장할 배열 생성. 책의 최대 개수는 100 권*/
+  char book_name[100][30], auth_name[100][30], publ_name[100][30];
+  /* 빌렸는지 상태를 표시 */
+  int borrowed[100];
+
+  while (1) {
+    printf("도서 관리 프로그램 \n");
+    printf("메뉴를 선택하세요 \n");
+    printf("1. 책을 새로 추가하기 \n");
+    printf("2. 책을 검색하기 \n");
+    printf("3. 책을 빌리기 \n");
+    printf("4. 책을 반납하기 \n");
+    printf("5. 프로그램 종료 \n");
+
+    printf("당신의 선택은 : ");
+    scanf("%d", &user_choice);
+
+    if (user_choice == 1) {
+      /* 책을 새로 추가하는 함수 호출 */
+      add_book(book_name, auth_name, publ_name, borrowed, &num_total_book);
+    } else if (user_choice == 2) {
+      /* 책을 검색하는 함수 호출 */
+    } else if (user_choice == 3) {
+      /* 책을 빌리는 함수 호출 */
+    } else if (user_choice == 4) {
+      /* 책을 반납하는 함수 호출 */
+    } else if (user_choice == 5) {
+      /* 프로그램을 종료한다. */
+      break;
+    }
+  }
+
+  return 0;
+}
+/* 책을 추가하는 함수*/
+int add_book(char (*book_name)[30], char (*auth_name)[30],
+             char (*publ_name)[30], int *borrowed, int *num_total_book) {
+  printf("추가할 책의 제목 : ");
+  scanf("%s", book_name[*num_total_book]);
+
+  printf("추가할 책의 저자 : ");
+  scanf("%s", auth_name[*num_total_book]);
+
+  printf("추가할 책의 출판사 : ");
+  scanf("%s", publ_name[*num_total_book]);
+
+  borrowed[*num_total_book] = 0; /* 빌려지지 않음*/
+  printf("추가 완료! \n");
+  (*num_total_book)++;
+
+  return 0;
+}
+```
+
+  - main 함수의 if 문에서 주의해야 할 점은 `add_book(book_name, auth_name, publ_name, borrowed, &num_total_book)`과 같이 &를 어디에 붙일지 매우 헷갈린다는 점이다. 기본적으로 배열의 경우, 배열의 이름이 배열의 메모리 상의 시작 주소이기 때문에 &를 붙이면 안된다. 그러나 num_total_book과 같은 int형 변수의 경우 int* 포인터에 주소값을 전달하려면 &를 이용하여 num_total_book변수의 주소값을 전달 해주어야 한다.
+  - 또 하나 주의해야 할 부분은 add_book 함수의 원형에서 `int add_book(char (*book_name)[30], char (*auth_name)[30], char (*publ_name)[30], int *borrowed, int *num_total_book);` 와 같이 해야하는데 마지막의 세미콜론을 빠뜨리면 수많은 오류가 생기게 된다.
+  
+- 책 검색하기
+  - 이번에는 두 번째 작업, 책을 검색하는 작업을 수행하는 함수를 만들어보겠다. 이 함수의 이름은 search_book이라고 한다. 이 함수는 3가지의 인자가 필요한데, book_name, auth_name, publ_name을 가진다.
+  - `int search_book(char (*book_name)[30], char (*auth_name)[30], char (*publ_name)[30], int num_total_book)`
+  - 우리가 여기서 만들 검색기능은 우리가 알고 있는 검색기능과는 살짝 다르다. 우리가 흔히 쓰는 검색 기능은 문자열이 비슷하거나 형태를 포함해도 검색결과에 나타나지만 우리가 만들 검색 기능은 문자열이 완전히 같을 때 나타난다고 한다. (차후 업그레이드)
+  - 이 때, 같은 문자열을 검색할 수 있도록 저번 강좌에서 만들었던 문자열 비교 함수를 이용하면 된다.
 
 </div>
 </details>
@@ -2176,8 +2274,6 @@ int borrowed[100];
     - 하지만 위 방법에는 살짝 문제점이 있는데, 책의 정보를 수정하기 위해서 함수에 인자로 전달할 때 상당히 불편하다는 사실이다.
     - 도서 관리 프로그램의 새로운 책을 추가하는 함수였던 add_book 함수의 원형은 `int add_book(char (*book_name)[30], char (*auth_name)[30], char (*publ_name)[30], int *borrowed, int *num_total_book);`인데, num_total_book을 빼더라도 인자가 너무 길다.
     - Sims에서 사람 한 명에는 수없이 많은 정보가 있다. 예를 들어 이름, 나이, 직업, 성격(외향적, 내향적, 사교적, ... 등을 모두 수치화 시켜서 보관), 직업, 재산, 가족관계 등 수없이 많은 정보가 있다. 사람의 정보를 수정하기 위해 함수를 호출할 때마다 이러한 정보들을 인자로 전달하려면 불편함이 생긴다.
-  
-    - 배열을 배우기 전에는 예를 들어 10명의 학생이 점수를 보관하기 위해 10개의 변수를 선언해 각각 보관했어야 하지만, 10개의 변수를 한꺼번에 배열로 처리하여 배열의 각각의 원소를 손쉽게 다루기 위해서였다.
 
 </div>
 </details>
@@ -2186,8 +2282,12 @@ int borrowed[100];
 <summary>06/11</summary>
 <div markdown="1">
 
-### 구조체 Struct (2)
-  - 
+### 구조체 Struct
+  - 구조체에 대한 소개 (2)
+    - 예를 들어 배열을 배우기 전에는 10명의 학생이 점수를 보관하기 위해 10개의 변수를 선언해 각각 보관했어야 하지만, 배열을 배운 후 10개의 변수를 한꺼번에 배열로 처리하여 배열의 각각의 원소를 손쉽게 다룰 수 있다.
+    - 즉 int arr[10];이라 한다면 int형 변수 10개를 쉽게 다룰 수 있는 것이다. 뿐만 아니라 함수에 int형 변수를 전달할 때, int형 변수 10개를 일일이 전달하려면 `int func(int a, int b, int c, ...(생략)...)`과 같이 해야하는데, 다음과 같이 int형 변수 10개를 arr을 이용하여 쉽게 전달 할 수 있다. `int func(int*arr);`
+    - 위 배열과 같은 논리가 여기에도 적용 될 수 있지 않을까? 원소의 크기가 제각각인 배열을 만들고, 한 사람에 대한 정보를 한 개의 배열에 저장하고, 첫번쨰 원소는 int로 나이를 보관하고 두번째 원소는 char[30]으로 이름을 보관하는 것이다.
+    > C언어에서는 배열의 원소의 타입은 모두 동일해야 한다. 다시말해 동일한 배열에서 어떤 원소는 char이고 어떤 원소는 int일 수 없다는 것이다. 하지만, C언어에서 배열로 해결하지 못하는 문제를 **구조체**를 이용하여 해결할 수 있다.
 
 </div>
 </details>
