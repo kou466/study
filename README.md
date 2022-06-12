@@ -2291,6 +2291,52 @@ int add_book(char (*book_name)[30], char (*auth_name)[30],
 
 </div>
 </details>
+
+<details>
+<summary>06/12</summary>
+<div markdown="1">
+
+```c
+/* 구조체의 도입*/
+#include <stdio.h>
+struct Human {
+  int age;    /* 나이 */
+  int height; /* 키 */
+  int weight; /* 몸무게 */
+};            /* ; 붙이는 것 주의하세요 */
+int main() {
+  struct Human Psi;
+
+  Psi.age = 99;
+  Psi.height = 185;
+  Psi.weight = 80;
+
+  printf("Psi 에 대한 정보 \n");
+  printf("나이   : %d \n", Psi.age);
+  printf("키     : %d \n", Psi.height);
+  printf("몸무게 : %d \n", Psi.weight);
+  return 0;
+}
+```
+- 위 코드 이해
+  - 구조체의 정의는 `struct {};` 부분이다. 구조체는 "각 원소의 타입이 제각각인 배열"이다. 이 때문에 배열에서는 배열의 타입만으로 모든 원소의 타입을 알 수 있지만, 구조체는 그렇지 않다.
+  - 구조체는 정의할 때 모든 원소의 타입을 명시해 주어야 한다. 위에서 Human이라는 이름의 구조체는 3개의 멤버를 가지고 있는데(보통 구조체에서는 원소보다 멤버(member)라고 부름) 각각의 멤버는 int age, int height, int weight이다.
+  - 구조체의 일반적인 정의는 아래와 같다.
+```c
+struct 구조체이름 {
+  멤버들.. 예를 들면 char str[10];
+  int i;
+  }; // 마지막에 꼭 ;을 붙인다.
+```
+
+- - 다음은 main 함수 내부이다.
+  - `struct Human Psi;`에서 Human이라는 구조체의 구조체 변수 Psi를 정의했다. 여기서 놀라운 점은 struct Human이라는 것이 우리가 마치 int형 변수를 정의할 때 int를 쓰는 것과 같이 사용되었다는 것이다.
+  - 이처럼 Psi를 정의하고 나면, Psi의 타입은 struct Human, 즉 Human 구조체가 된다. int a했을 때 a의 타입이 int인 것 처럼 말이다.
+  
+
+</div>
+</details>
+
 </div>
 </details>
 
