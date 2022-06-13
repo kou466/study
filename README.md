@@ -2332,7 +2332,67 @@ struct 구조체이름 {
 - - 다음은 main 함수 내부이다.
   - `struct Human Psi;`에서 Human이라는 구조체의 구조체 변수 Psi를 정의했다. 여기서 놀라운 점은 struct Human이라는 것이 우리가 마치 int형 변수를 정의할 때 int를 쓰는 것과 같이 사용되었다는 것이다.
   - 이처럼 Psi를 정의하고 나면, Psi의 타입은 struct Human, 즉 Human 구조체가 된다. int a했을 때 a의 타입이 int인 것 처럼 말이다.
-  
+
+</div>
+</details>
+
+<details>
+<summary>06/13</summary>
+<div markdown="1">
+
+- 이어서
+  - 그렇다면 배열에서 []를 이용해서 원소에 접근하듯, 구조체에서도 멤버에 접근할 방법이 있는데 C언어에서는 . 을 이용하여 원소에 접근할 수 있다.
+  - 예를 들어, Psi의 height 멤버에 접근하려면 Psi.height라고 하면 된다. 이는 배열에서 arr[3]과 같이 원소에 접근하는 것과 동일하다.
+  - 다만 구조체는 . 을 이용하고, 멤버가 무엇인지 특별히 명시해주어야 한다.
+  - 따라서 `Psi.age = 99; Psi.height = 185; Psi.weight = 80;`의 작업은 Psi라는 구조체의 각 멤버에 값을 대입하는 것이다. 이는 배열에서 `arr[1] = 99; arr[2] = 185;`와 같이 하는 것과 동일하다.
+
+```c
+/* 구조체 예제 2 */
+#include <stdio.h>
+char copy_str(char *dest, const char *src);
+struct Books {
+  /* 책 이름 */
+  char name[30];
+  /* 저자 이름 */
+  char auth[30];
+  /* 출판사 이름 */
+  char publ[30];
+  /* 빌려 졌나요? */
+  int borrowed;
+};
+int main() {
+  struct Books Harry_Potter;
+
+  copy_str(Harry_Potter.name, "Harry Potter");
+  copy_str(Harry_Potter.auth, "J.K. Rolling");
+  copy_str(Harry_Potter.publ, "Scholastic");
+  Harry_Potter.borrowed = 0;
+
+  printf("책 이름 : %s \n", Harry_Potter.name);
+  printf("저자 이름 : %s \n", Harry_Potter.auth);
+  printf("출판사 이름 : %s \n", Harry_Potter.publ);
+
+  return 0;
+}
+char copy_str(char *dest, const char *src) {
+  while (*src) {
+    *dest = *src;
+    src++;
+    dest++;
+  }
+
+  *dest = '\0';
+
+  return 1;
+}
+```
+
+- 코드 분석
+  - 위 코드에서는 예전에 만들었던 copy_str 함수를 가져왔다. 이 함수는 문자열을 src에서 dest로 복사하는 함수인데, 이미 썼던 것을 활용하는 것은 상당한 시간이 절약되고 편리한 방법 중 하나이다.
+  - 먼저, 구조체를 정의한 부분을 보면, Book 구조체가 이전에 만들었던 도서 관리 프로그램을 닮았다는 것이다. 그때는 각 책을 배열의 한 개의 원소로 표현했는데, 책 이름의 경우 name[100][30]의 한 문자열 name[i]로(여기서 i는 임의의 수), 빌려졌는지에 대한 유무의 경우, borrowed[100]의 한 원소 borrowed[i]로 표현했었다. 하지만 구조체를 이용하면 책의 각각의 정보를 따로 배열에 정의할 필요가 없게 된다.
+  - main 함수를 살펴보면 Harry_Potter라는 struct Books의 구조체 변수가 있는데 이 Harry_Potter의 각 멤버에 값을 대입해야 한다.
+  - 책의 이름, Harry_Potter.name에 "Harry Potter"를, 저자 이름과 출판사에도 모두 대입한다. 마지막으로 빌렸는지 아닌지에 대한 유무를 확인하기 위한 Harry_Potter.borrowed에도 0을 넣어주어야 한다.
+  > borrowed 멤버의 값은 처음에 언제나 0으로 설정되어 있다. 그렇다면 굳이 매번 책을 새로 등록할 때 마다 borrowed = 0을 해줄 필요없이 구조체 자체에서 바꿔버리면 안되느냐라고 할 수 있는데, **구조체의 정의에서는 변수를 초기화 할 수 없기 때문에 안된다.**
 
 </div>
 </details>
