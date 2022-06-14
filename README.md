@@ -2393,6 +2393,70 @@ char copy_str(char *dest, const char *src) {
   - main 함수를 살펴보면 Harry_Potter라는 struct Books의 구조체 변수가 있는데 이 Harry_Potter의 각 멤버에 값을 대입해야 한다.
   - 책의 이름, Harry_Potter.name에 "Harry Potter"를, 저자 이름과 출판사에도 모두 대입한다. 마지막으로 빌렸는지 아닌지에 대한 유무를 확인하기 위한 Harry_Potter.borrowed에도 0을 넣어주어야 한다.
   - 그런데 borrowed 멤버의 값은 처음에 언제나 0으로 설정되어 있다. 그렇다면 굳이 매번 책을 새로 등록할 때 마다 borrowed = 0을 해줄 필요없이 구조체 자체에서 바꿔버리면 안되느냐라고 할 수 있는데, **구조체의 정의에서는 변수를 초기화 할 수 없기 때문에 불가능하다.**
+  > 위와 같은 실수를 할 경우 찾기도 어렵고 오류도 엉뚱한 것들만 나오기 때문에 위와 같은 실수를 조심하는 것이 중요하다.
+
+</div>
+</details>
+
+<details>
+<summary>06/14</summary>
+<div markdown="1">
+
+```c
+/* 구조체 예제*/
+#include <stdio.h>
+struct Books {
+  /* 책 이름 */
+  char name[30];
+  /* 저자 이름 */
+  char auth[30];
+  /* 출판사 이름 */
+  char publ[30];
+  /* 빌려 졌나요? */
+  int borrowed;
+};
+int main() {
+  struct Books book_list[3];
+  int i;
+
+  for (i = 0; i < 3; i++) {
+    printf("책 %d 정보 입력 : ", i);
+    scanf("%s%s%s", book_list[i].name, book_list[i].auth, book_list[i].publ);
+    book_list[i].borrowed = 0;
+  }
+
+  for (i = 0; i < 3; i++) {
+    printf("------------------------------- \n");
+    printf("책 %s 의 정보\n", book_list[i].name);
+    printf("저자 : %s \n", book_list[i].auth);
+    printf("출판사 : %s \n", book_list[i].publ);
+
+    if (book_list[i].borrowed == 0) {
+      printf("빌려지지 않음 \n");
+    } else {
+      printf("빌려짐 \n");
+    }
+  }
+  return 0;
+}
+```
+
+- 코드 분석
+  - main 함수
+    - `struct Books book_list[3];`을 보자. 이전에도 말했듯 int arr[3]에서 int가 하나의 타입이듯이, struct Books가 하나의 타입으로 생각하면 된다. int arr[3]을 하면 arr에 int형 원소가 3개 만들어 지듯, book_list 배열에는 struct Books 형의 변수가 3개 만들어 진다.
+    - for문에서는 scanf 함수로 book_list의 i 원소의 name, auth, publ 멤버에 문자열을 입력받고 있는 모습을 볼 수 있다. 또한 borrowed의 값도 0으로 초기화 해주고 있다.
+    - 입력을 다 받고 나면 for문에서 book_list의 각 원소의 멤버들을 출력한다.
+    - 특히 borrowed의 값이 0이면 "빌려지지 않음", 0이 아니면 "빌려짐"이 출력되는데 위의 경우 0으로 값을 설정하고 값을 바꾸는 부분이 없으므로 항상 빌려지지 않음이 출력된다.
+
+</div>
+</details>
+
+<details>
+<summary>06/15</summary>
+<div markdown="1">
+
+- 구조체 포인터
+  - 
 
 </div>
 </details>
