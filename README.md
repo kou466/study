@@ -2566,7 +2566,60 @@ int main() {
   - 한번 더 강조하지만, int, char로 생각하는 것처럼 struct TEST도 우리가 창조해 낸 하나의 타입이며, 이를 가리키는 포인터 역시 다른 모든 포인터와 같은 크기라는 것이다.
   - 즉 pt는 절대로 구조체가 아니며, pt는 단순히 구조체 변수 t가 저장되어있는 메모리 공간의 주소값을 보관하고 있을뿐이다. 이 때, pt는 t의 주소값을 가지고 있으므로 pt는 t를 가리키게 된다.
   - pt가 t를 가리키고 있으므로 pt를 통해 t의 값을 마음대로 조작할 수 있다.
-  - int *pi = &i를 한 후,
+  - int *pi = &i를 한 후, *pi를 쓰면 i를 간접적으로 나타낼 수 있었듯, *pt를 이용하면 pt가 가리키고 있느 struct TEST형의 변수, 즉 t를 나타낼 수 있다.
+  - 즉, (*pt).c를 하면 t의 멤버 c를 의미하게 된다. (이 떄, *pt를 관호로 감싸주는 이유는 .이 우선순위가 *보다 높기 때문에 그냥 *pt.c라고 쓰면 "pt의 c멤버가 가리키는 것"을 의미 한다.) (*pt).c = 0; 을 통해 t의 c멤버의 값을 성공적으로 바꿀 수 있다.
+  - 하지만 위처럼 (*pt).c는 항상 *pt를 괄호로 닫아주어야 하기에 쓰기 불편하다. 그래서 편리를 위해 ->라는 연산자를 새로 만들었다.
+  - ->연산자의 의미는 "pt가 가리키는 구조체 멤버의 변수의 멤버"를 의미한다. 따라서, pt->c는 "pt가 가리키는 구조체 변수, 즉 t의 멤버 c"를 의미하게 된다. 이 때, pt->c = 1; 을 통해 t의 멤버 c의 값을 1로 바꾸었다.
+
+```c
+/* 헷갈림 */
+#include <stdio.h>
+struct TEST {
+  int c;
+  int *pointer;
+};
+int main() {
+  struct TEST t;
+  struct TEST *pt = &t;
+  int i = 0;
+
+  /* t 의 멤버 pointer 는 i 를 가리키게 된다*/
+  t.pointer = &i;
+
+  /* t 의 멤버 pointer 가 가리키는 변수의 값을 3 으로 만든다*/
+  *t.pointer = 3;
+
+  printf("i : %d \n", i);
+
+  /*
+
+  -> 가 * 보다 우선순위가 높으므로 먼저 해석하게 된다.
+  즉,
+  (pt 가 가리키는 구조체 변수의 pointer 멤버) 가 가리키는 변수의 값을 4 로
+  바꾼다. 라는 뜻이다/
+
+  */
+  *pt->pointer = 4;
+
+  printf("i : %d \n", i);
+  return 0;
+}
+```
+
+- 코드 분석 (위 코드만 제대로 이해한다면 구조체 포인터로 혼동하는 일은 없을듯 하다고 함.)
+  - `t.pointer = &i;` 에서 t의 pointer라는 멤버에는 i의 주소값이 들어간다. 따라서 pointer는 i를 가리키게 된다.
+  - `*t.pointer = 3;` 우선순위를 고려하면 .가 *보다 높으므로 t.pointer가 먼저 해석되고 그 다음에 *(t.pointer)형태로 해석된다. 따라서 *t.pointer를 통해 구조체 변수 t의 pointer 멤버가 가리키는 변수를 지칭할 수 있게 된다.
+  - `*pt->pointer = 4;` .과 마찬가리고 ->도 *보다 우선순위가 높다. 즉, *(pt->pointer)와 *pt->pointer는 동일한 의미이다. pt->pointer를 통해 "pt가 가리키는 구조체 변수의 pointer 멤버", 즉 t.pointer를 의미한다. *(pt->pointer) = 4를 통해 pointer가 가리키는 변수의 값을 4로 바꿀 수 있다.
+
+</div>
+</details>
+
+<details>
+<summary>06/21</summary>
+<div markdown="1">
+
+- 구조체 Struct (2)
+  -
 
 </div>
 </details>
