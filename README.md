@@ -2531,11 +2531,42 @@ int main() {
 </details>
 
 <details>
-<summary>06/17</summary>
+<summary>06/20</summary>
 <div markdown="1">
 
 - 구조체 Struct (2)
-  - 
+  - 구조체 포인터 연습
+
+```c
+/* 포인터 갖고 놀기 */
+#include <stdio.h>
+struct TEST {
+  int c;
+};
+int main() {
+  struct TEST t;
+  struct TEST *pt = &t;
+
+  /* pt 가 가리키는 구조체 변수의 c 멤버의 값을 0 으로 한다*/
+  (*pt).c = 0;
+
+  printf("t.c : %d \n", t.c);
+
+  /* pt 가 가리키는 구조체 변수의 c 멤버의 값을 1 으로 한다*/
+  pt->c = 1;
+
+  printf("t.c : %d \n", t.c);
+
+  return 0;
+}
+```
+
+- 코드 분석
+  - 일단 struct TEST형의 구조체 변수 t와 struct TEST형을 가리키는 포인터 pt를 선언했다.
+  - 한번 더 강조하지만, int, char로 생각하는 것처럼 struct TEST도 우리가 창조해 낸 하나의 타입이며, 이를 가리키는 포인터 역시 다른 모든 포인터와 같은 크기라는 것이다.
+  - 즉 pt는 절대로 구조체가 아니며, pt는 단순히 구조체 변수 t가 저장되어있는 메모리 공간의 주소값을 보관하고 있을뿐이다. 이 때, pt는 t의 주소값을 가지고 있으므로 pt는 t를 가리키게 된다.
+  - pt가 t를 가리키고 있으므로 pt를 통해 t의 값을 마음대로 조작할 수 있다.
+  - int *pi = &i를 한 후,
 
 </div>
 </details>
