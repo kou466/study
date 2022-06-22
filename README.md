@@ -2245,7 +2245,7 @@ int add_book(char (*book_name)[30], char (*auth_name)[30],
 </details>
 
 <details>
-<summary>04/27~06/??</summary>
+<summary>04/27~06/21</summary>
 <div markdown="1">
 
 ### 파견
