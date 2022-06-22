@@ -2660,6 +2660,92 @@ int add_one(int *a) {
 ```
 
 - 코드 분석
+  - `struct Test;`, `struct TEST *pt = &t;` pt는 t를 가리키고 있다.
+  - `add_one(&t.c);` 이 함수에 t의 멤버 c의 주소값을 전달하였다. 역시 &보다 .이 우선순위가 높으므로 이 식은 &(t.c)와 동일하다. 결과적으로 add_one함수에 의해 c의 값이 1 증가 한다.
+  - `add_one(&pt->c);` 마찬가지로 ->가 &보다 우선순위가 높으므로 pt가 가리키는 구조체의 멤버 c의 값이 1 증가하게 된다.
+
+</div>
+</details>
+
+<details>
+<summary>06/22</summary>
+<div markdown="1">
+
+- 구조체의 대입
+  - 구조체도 보통의 변수들과 같이 =를 사용할 수 있다. (=는 대입연산자)
+```c
+// 예제 1
+#include <stdio.h>
+struct TEST {
+  int i;
+  char c;
+};
+int main() {
+  struct TEST st, st2;
+
+  st.i = 1;
+  st.c = 'c';
+
+  st2 = st;
+
+  printf("st2.i : %d \n", st2.i);
+  printf("st2.c : %c \n", st2.c);
+
+  return 0;
+}
+```
+
+- 코드 분석
+  - 멤버가 i와 c인 struct TEST를 정의했고, 이 구조체의 변수인 st, st2를 정의했다. 그리고 st의 각 멤버에 값을 넣었다.
+  - `st2 = st;`를 통해 st를 st2에 대입했다. 변수 i를 j에 대입하면 i의 값이 j에 그대로 복사되듯, st2의 멤버 i의 값은 st의 멤버 i의 값과 같아지고, st2의 멤버 c의 값은 st의 멤버 c의 값과 동일해졌다.
+
+```c
+//예제 2
+#include <stdio.h>
+char copy_str(char *dest, char *src);
+struct TEST {
+  int i;
+  char str[20];
+};
+int main() {
+  struct TEST a, b;
+
+  b.i = 3;
+  copy_str(b.str, "hello, world");
+
+  a = b;
+
+  printf("a.str : %s \n", a.str);
+  printf("a.i : %d \n", a.i);
+
+  return 0;
+}
+char copy_str(char *dest, char *src) {
+  while (*src) {
+    *dest = *src;
+    src++;
+    dest++;
+  }
+
+  *dest = '\0';
+
+  return 1;
+}
+```
+
+- 코드 분석
+  - struct TEST를 정의했고, int i와 char str[20]을 멤버로 가지고 있다.
+  - 구조체를 정의한 뒤, 각각의 멤버를 초기화한다. copy_str 함수는 '문자열 다루기'파트에서 만들어본 함수이다.
+  - b구조체를 ㅁ구조체에 대입하였다. 따라서, b구조체의 모든 멤버의 데이터가 a구조체에 일대일로 대응이 되어 복사된다. 즉, i는 i끼리, str은 str의 각 원소끼리 복사가 된다. 결과적으로 각각의 멤버값을 출력해보면 동일하게 나온다.
+
+</div>
+</details>
+
+<details>
+<summary>06/23</summary>
+<div markdown="1">
+
+- 구조체를 인자로 전달하기
   - 
 
 </div>
