@@ -2256,7 +2256,7 @@ int add_book(char (*book_name)[30], char (*auth_name)[30],
 </div>
 </details>
 
-## JUNE 2022
+## Jun 2022
 
 <details>
 <summary>2022/06</summary>
