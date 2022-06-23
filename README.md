@@ -2746,7 +2746,72 @@ char copy_str(char *dest, char *src) {
 <div markdown="1">
 
 - 구조체를 인자로 전달하기
-  - 
+
+```c
+/*구조체를 인자로 전달하기 */
+#include <stdio.h>
+struct TEST {
+  int age;
+  int gender;
+};
+int set_human(struct TEST a, int age, int gender);
+int main() {
+  struct TEST human;
+  set_human(human, 10, 1);
+  printf("AGE : %d // Gender : %d ", human.age, human.gender);
+  return 0;
+}
+int set_human(struct TEST a, int age, int gender) {
+  a.age = age;
+  a.gender = gender;
+  return 0;
+}
+```
+
+- 코드 분석
+  - 이 코드를 컴파일 했다면 오류가 생길건데, 오류의 내용은 human이라는 구조체 변수가 값이 초기화되지 않은 채 사용되었다고 나온다.
+  - 먼저 TEST구조체를 정의했고 set_human이라는 함수를 만들어 TEST구조체 변수들을 초기화 하도록 했다.
+  - 따라서 `set_human(human, 10, 1);`과 같이 한다면 human의 age와 gender 멤버들이 초기화 될 것처럼 보이나, 그렇지 않다.
+  - "특정한 변수의 값을 다른 함수를 통해 바꾸려면 변수의 주소값을 전달해야 한다"라는 규칙을 지키지 않았기 때문이다. 다시말해 위 경우에서 a.age = age;를 했을때 age의 값이 바뀌는 것은 실제 main함수에서의 human이 아니라 set_human함수의 a라는 human과 별개의 구조체 변수의 age멤버의 값이 바뀌게 되는것이다.
+  - 따라서 실제 human구조체 변수의 멤버들은 전혀 초기화 되지 않은 채 출력이 실행되어 오류가 발생했다.
+  - 이를 해결하기 위해서는 human구조체 변수의 주소값을 인자로 받는 함수를 만들어야 할 것이다.
+
+```c
+/* 인자로 제대로 전달하기 */
+#include <stdio.h>
+struct TEST {
+  int age;
+  int gender;
+};
+int set_human(struct TEST *a, int age, int gender);
+int main() {
+  struct TEST human;
+
+  set_human(&human, 10, 1);
+
+  printf("AGE : %d // Gender : %d ", human.age, human.gender);
+  return 0;
+}
+int set_human(struct TEST *a, int age, int gender) {
+  a->age = age;
+  a->gender = gender;
+
+  return 0;
+}
+```
+
+- 코드 분석
+  - set_human 함수는 이전 예제에서의 set_human함수와는 다르게 구조체의 포인터를 인자로 취하고 있다. 그렇기 때문에 set_human함수를 호출할 때에도 `set_human(&human, 10, 1);` 처럼 human의 주소값을 인자로 전달하고 있다. 따라서 a는 human을 가리키게 된다. (주의할 점은 a는 절대로 구조체 변수가 아니라는 것이다. 단순히 human구조체 변수가 메모리 상에 위치한 곳의 시작 지점의 주소값을 보관하고 있을 뿐이다.)
+  -
+
+</div>
+</details>
+
+<details>
+<summary>06/24</summary>
+<div markdown="1">
+
+- 
 
 </div>
 </details>
