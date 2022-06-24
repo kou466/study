@@ -2802,7 +2802,8 @@ int set_human(struct TEST *a, int age, int gender) {
 
 - 코드 분석
   - set_human 함수는 이전 예제에서의 set_human함수와는 다르게 구조체의 포인터를 인자로 취하고 있다. 그렇기 때문에 set_human함수를 호출할 때에도 `set_human(&human, 10, 1);` 처럼 human의 주소값을 인자로 전달하고 있다. 따라서 a는 human을 가리키게 된다. (주의할 점은 a는 절대로 구조체 변수가 아니라는 것이다. 단순히 human구조체 변수가 메모리 상에 위치한 곳의 시작 지점의 주소값을 보관하고 있을 뿐이다.)
-  -
+  - 위와 같이 전달한다면 a->를 통해 a가 가리키고 있는 구조체 변수의 멤버, 즉 human의 멤버를 지칭할 수 있게된다. 따라서 a->age = age;를 하게되면 human의 age멤버의 값이 바뀌게 된다.
+  - 주의할점은 a->age와 age는 다르다는 것이다. a->age는 human구조체 변수의 int형 멤버 age를 지칭하는 것이고, age는 단순히 set_human함수에서 인자로 받아들여진 int형의 age라는 변수를 가리키는 말이다. 이 둘은 다른것이고 실제로 컴퓨터 내부에서도 다르게 처리된다.
 
 </div>
 </details>
@@ -2811,7 +2812,51 @@ int set_human(struct TEST *a, int age, int gender) {
 <summary>06/24</summary>
 <div markdown="1">
 
-- 
+```c
+/* 살짝 업그레이드*/
+#include <stdio.h>
+struct TEST {
+  int age;
+  int gender;
+  char name[20];
+};
+int set_human(struct TEST *a, int age, int gender, const char *name);
+char copy_str(char *dest, const char *src);
+
+int main() {
+  struct TEST human;
+
+  set_human(&human, 10, 1, "Lee");
+
+  printf("AGE : %d // Gender : %d // Name : %s \n", human.age, human.gender,
+         human.name);
+  return 0;
+}
+int set_human(struct TEST *a, int age, int gender, const char *name) {
+  a->age = age;
+  a->gender = gender;
+  copy_str(a->name, name);
+
+  return 0;
+}
+char copy_str(char *dest, const char *src) {
+  while (*src) {
+    *dest = *src;
+    src++;
+    dest++;
+  }
+
+  *dest = '\0';
+
+  return 1;
+}
+```
+
+- 코드 분석
+  - 이전 예제와 동일하지만 name[20] 이라는 멤버를 하나 더 추가했다.
+  - set_human함수에서 name멤버 역시 같이 초기화해주기 위해 인자로 char *형의 name이라는 인자를 추가로 받게된다.
+  - TEST구조체 변수인 human을 초기화 하기 위해서 set_human함수를 호출하였다.
+  - 이 함수는 a가 가리키는 구조체 변수의 각 멤버들을 초기화 하게 되는데, main함수의 human구조체 변수의 name멤버를 초기화 하기 위해서는 copy_str함수를 이용해야 한다. 이를 위해서는 name배열의 주소값과 복사해 넣으려는 문자열의 주소값을 넣어야 하는데 a->name을 통해 human구조체 변수의 name멤버의 주소값과, name(이는 두 번째 인자로 a->name과 전혀 다른것이다.)을 통해 복사해 넣으려는 문자열의 주소값을 copy_str에 전달할 수 있게 된다. 이를 통해 human의 각각의 멤버들을 초기화 할 수 있게 되었다.
 
 </div>
 </details>
