@@ -2861,6 +2861,45 @@ char copy_str(char *dest, const char *src) {
 </div>
 </details>
 
+<details>
+<summary>06/25</summary>
+<div markdown="1">
+
+- 구조체 Struct (3)
+  - 구조체의 나머지 기능에 대한 이해
+  - 공용체(union), 열거형(enum)에 대한 이해
+
+```c
+/* 구조체 안의 구조체*/
+#include <stdio.h>
+struct employee {
+  int age;
+  int salary;
+};
+struct company {
+  struct employee data;
+  char name[10];
+};
+int main() {
+  struct company Kim;
+
+  Kim.data.age = 31;
+  Kim.data.salary = 3000000;
+
+  printf("Kim's age : %d \n", Kim.data.age);
+  printf("Kim's salary : %d$/year \n", Kim.data.salary);
+
+  return 0;
+}
+```
+
+- 코드 분석
+  - employee구조체를 살펴보면, int형의 age와 salary변수 두 개가 멤버로 되어있다.
+  - company의 구조체를 보면, 또다른 구조체 변수를 멤버로 가짐을 볼 수 있다.
+
+</div>
+</details>
+
 </div>
 </details>
 
