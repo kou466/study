@@ -2914,7 +2914,8 @@ int main() {
 <summary>06/27</summary>
 <div markdown="1">
 
-- 
+- 구조체 Struct (3)
+  -
 
 </div>
 </details>
