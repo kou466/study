@@ -2920,6 +2920,35 @@ int main() {
 </div>
 </details>
 
+<details>
+<summary>06/28</summary>
+<div markdown="1">
+
+- 건강검진 및 작업
+
+</div>
+</details>
+
+<details>
+<summary>06/29</summary>
+<div markdown="1">
+
+- 구조체 Struct (3)
+  - 
+
+</div>
+</details>
+
+<details>
+<summary>06/30</summary>
+<div markdown="1">
+
+- 구조체 Struct (3)
+  -
+
+</div>
+</details>
+
 </div>
 </details>
 
