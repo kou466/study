@@ -2904,7 +2904,8 @@ int main() {
 <summary>06/26</summary>
 <div markdown="1">
 
-- 
+- 이어서
+  - 
 
 </div>
 </details>
