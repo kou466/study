@@ -2904,8 +2904,7 @@ int main() {
 <summary>06/26</summary>
 <div markdown="1">
 
-- 이어서
-  - 
+- 휴식
 
 </div>
 </details>
@@ -2915,8 +2914,11 @@ int main() {
 <summary>06/27</summary>
 <div markdown="1">
 
-- 구조체 Struct (3)
-  -
+- 이어서
+  - 구조체는 사용자가 정의한 또다른 형(type)이라고 본다.
+  - 구조체 역시 int나 char과 같은 하나의 형이다. 여기서 만든 형은 이름이 struct employee라는 것이고, 그 중 data라는 (구조체) 변수를 생성했다. 이는 int a와 지극히 똑같은 작업이다.
+  - `struct company Kim;`과 같이 company구조체를 정의한 뒤, 'struct company'형의 변수 Kim을 정의하였다.
+  - 
 
 </div>
 </details>
@@ -2925,7 +2927,7 @@ int main() {
 <summary>06/28</summary>
 <div markdown="1">
 
-- 건강검진 및 작업
+- 건강검진
 
 </div>
 </details>
@@ -2961,6 +2963,16 @@ int main() {
 
 <details>
 <summary>07/01</summary>
+<div markdown="1">
+
+- 구조체 Struct (3)
+  -
+
+</div>
+</details>
+
+<details>
+<summary>07/02</summary>
 <div markdown="1">
 
 - 구조체 Struct (3)
