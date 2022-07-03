@@ -2918,7 +2918,7 @@ int main() {
   - 구조체는 사용자가 정의한 또다른 형(type)이라고 본다.
   - 구조체 역시 int나 char과 같은 하나의 형이다. 여기서 만든 형은 이름이 struct employee라는 것이고, 그 중 data라는 (구조체) 변수를 생성했다. 이는 int a와 지극히 똑같은 작업이다.
   - `struct company Kim;`과 같이 company구조체를 정의한 뒤, 'struct company'형의 변수 Kim을 정의하였다.
-  - 
+  - 이제 Kim의 멤버들에게 값을 대입한다. `Kim.data.age = 31;` 여기서 .연산자의 우선 순위는 왼쪽부터 이므로 Kim.data가 해석된 후, (Kim.data).age가 해석이 된다. 즉, Kim의 data멤버의 age멤버로 생각된는것이다. 따라서 Kim의 data멤버의 age멤버에 31의 값을 넣었고 마찬가지로 salary에 30000을 넣었다.
 
 </div>
 </details>
@@ -2937,8 +2937,41 @@ int main() {
 <div markdown="1">
 
 - 구조체 Struct (3)
-  - 
+  - 구조체를 리턴하는 함수
+    - 구조체는 말그대로 우리가 창조한 하나의 타입이긴 때문에 int, char등 가능했던 모든 것들을 구조체는 그대로 할 수 있다. 역시 구조체 형을 리턴하는 함수도 가능하다.
 
+```c
+/* 구조체를 리턴하는 함수 */
+#include <stdio.h>
+struct AA function(int j);
+struct AA {
+  int i;
+};
+
+int main() {
+  struct AA a;
+
+  a = function(10);
+  printf("a.i : %d \n", a.i);
+
+  return 0;
+}
+
+struct AA function(int j) {
+  struct AA A;
+  A.i = j;
+
+  return A;
+}
+```
+
+- 코드 분석
+  - 먼저 AA라는 구조체를 정의하고 편의상 멤버는 inti로 하나만 가진다고 한다.
+  - 아래는 "struct AA"형을 리턴하는 함수 function이고 인자는 int j를 취한다.
+  - 말그대로 struct AA형을 리턴하기 때문에 리턴하는 것 역시 struct AA형의 것이 되야 한다. 위 함수는 인자로 받는 j값으로 A의 i멤버를 j의 값으로 초기화 한 후 이를 그대로 리턴한다.
+  - main함수에서 struct AA타입의 구조체 변수 a를 정의했다. 그렇다면 a = function(10);을 통해 function(10)이 리턴한 구조체의 대입이 일어나게 된다.
+  - function(10)은 'i멤버의 값이 10인 구조체 변수'를 리턴하므로 a의 i멤버 값은 10이 된다.
+  
 </div>
 </details>
 
@@ -2947,7 +2980,118 @@ int main() {
 <div markdown="1">
 
 - 구조체 Struct (3)
-  -
+  - 구조체 변수의 정의 방법
+    - 그동안 구조체 변수를 다음과 같이 정의했다. `struct Anonymous Var1, Var2; // "struct Anonymous"형의 변수 Var1, Var2를 정의`
+    - 그런데 구조체 변수를 정의하는 방법 중 아래와 같이 색다른 방법도 있다.
+
+```c
+//구조체 변수를 정의하는 색다른 방법
+
+#include <stdio.h>
+char copy_str(char *dest, char *src);
+int Print_Obj_Status(struct obj OBJ);
+struct obj {
+  char name[20];
+  int x, y;
+} Ball;
+
+int main() {
+  Ball.x = 3;
+  Ball.y = 4;
+  copy_str(Ball.name, "RED BALL");
+
+  Print_Obj_Status(Ball);
+
+  return 0;
+}
+int Print_Obj_Status(struct obj OBJ) {
+  printf("Location of %s \n", OBJ.name);
+  printf("( %d , %d ) \n", OBJ.x, OBJ.y);
+
+  return 0;
+}
+char copy_str(char *dest, char *src) {
+  while (*src) {
+    *dest = *src;
+    src++;
+    dest++;
+  }
+
+  *dest = '\0';
+
+  return 1;
+}
+```
+
+- 코드 분석
+  - struct obj라는 구조체를 정의하였고 멤버는 name, x, y이다. 그런데 맨 아래 Ball이 있는데 이는 그냥 struct obj형의 Ball이란 구조체 변수를 정의하라는 뜻이다.
+  - 사실 그동안 main함수 내부에서 `struct obj Ball;` 이라고 쓴것과 다를바가 없다. 그냥 위와 같이 구조체 변수를 정의하는 방법도 있다는 것이다.
+
+```c
+/* 멤버를 쉽게 초기화 하기*/
+#include <stdio.h>
+int Print_Status(struct HUMAN human);
+struct HUMAN {
+  int age;
+  int height;
+  int weight;
+  int gender;
+};
+
+int main() {
+  struct HUMAN Adam = {31, 182, 75, 0};
+  struct HUMAN Eve = {27, 166, 48, 1};
+
+  Print_Status(Adam);
+  Print_Status(Eve);
+}
+
+int Print_Status(struct HUMAN human) {
+  if (human.gender == 0) {
+    printf("MALE \n");
+  } else {
+    printf("FEMALE \n");
+  }
+
+  printf("AGE : %d / Height : %d / Weight : %d \n", human.age, human.height,
+         human.weight);
+
+  if (human.gender == 0 && human.height >= 180) {
+    printf("HE IS A WINNER!! \n");
+  } else if (human.gender == 0 && human.height < 180) {
+    printf("HE IS A LOSER!! \n");
+  }
+
+  printf("------------------------------------------- \n");
+
+  return 0;
+}
+```
+
+- 코드 분석
+  - 위 예제도 역시 구조체의 여러 기능 중 하나를 보여주는데, 바로 멤버를 초기화 하는 방식이다. 이전까지 멤버를 초기화 해온 방법보다 더 쉽게 할 수 있다.
+  - HUMAN 구조체는 4개의 int형 멤버들을 가지고 있다.
+  - main내부에서 Adam과 Eve를 정의하였고, 이 때 = {}를 통해서 중괄호 내부의 정보들이 순차적으로 각 멤버에 대입된다.
+  - 따라서 Adam의 경우 age에 31, height에 182, weight에 75 gender에는 0이 들어간다.
+  - 이전 예제에서 쓴 초기화 방식에서는 다음과 같이 하면 된다.
+  ```c
+  struct HUMAN {
+  int age;
+  int height;
+  int weight;
+  int gender;
+} Adam = {31, 182, 75, 0}, Eve = {27, 166, 48, 1};
+  ```
+  - 이전 예제의 struct obj의 경우도 다음과 같이 할 수 있다.
+  ```c
+  struct obj {
+    char name[20];
+    int x, y;
+    } Ball = {"abc", 10, 2};
+  ```
+  - 위와 같이 하게되면 name에는 "abc", x에는 10, y에는 2가 들어간다.
+
+> 여기서 구조체에 관한 이야기는 끝이 난다.
 
 </div>
 </details>
@@ -2966,7 +3110,7 @@ int main() {
 <div markdown="1">
 
 - 구조체 Struct (3)
-  -
+  - 공용체 (union)
 
 </div>
 </details>
@@ -2976,7 +3120,17 @@ int main() {
 <div markdown="1">
 
 - 구조체 Struct (3)
-  -
+  - 빅 엔디안 (Big Endian), 리틀 엔디안 (Little Endian)
+
+</div>
+</details>
+
+<details>
+<summary>07/03</summary>
+<div markdown="1">
+
+- 구조체 Struct (3)
+  - 열거형 (Enum)
 
 </div>
 </details>
