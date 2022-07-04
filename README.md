@@ -3135,6 +3135,15 @@ int Print_Status(struct HUMAN human) {
 </div>
 </details>
 
+<details>
+<summary>07/04</summary>
+<div markdown="1">
+
+- 변수의 생존 조건 및 데이터 세그먼트의 구조
+
+</div>
+</details>
+
 </div>
 </details>
 
